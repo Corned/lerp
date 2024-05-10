@@ -12,8 +12,8 @@ import WorkspaceMembers from "../components/WorkspaceMembers"
 
 const Workspace = () => {
   return (
-    <div className="grid h-full max-w-full grid-cols-main">
-      <div className=" max-h-full overflow-y-auto">
+    <div className="grid grid-cols-[1fr_290px] overflow-hidden">
+      <div className="overflow-x-hidden overflow-y-scroll">
         <Header>
           <h1 className="text-4xl font-bold">My Workspace</h1>
           <WorkspaceMembers />

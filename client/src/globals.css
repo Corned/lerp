@@ -78,6 +78,9 @@
     @apply h-full;
   }
 
+  #root {
+  }
+
   body {
     @apply bg-white text-foreground;
   }
