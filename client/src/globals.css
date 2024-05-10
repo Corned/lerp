@@ -72,6 +72,6 @@
   }
   body,
   #root {
-    @apply h-screen bg-background text-foreground;
+    @apply h-screen bg-background text-foreground bg-white;
   }
 }
