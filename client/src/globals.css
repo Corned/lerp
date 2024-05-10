@@ -70,8 +70,12 @@
   * {
     @apply border-border;
   }
-  body,
-  #root {
-    @apply h-screen bg-background bg-white text-foreground;
+
+  html, body, #root {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-white text-foreground;
   }
 }

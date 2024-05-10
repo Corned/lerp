@@ -1,9 +1,15 @@
 import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar"
 import { Progress } from "./components/ui/progress"
 
+interface Task {
+  tags: [string]
+  body: string
+  date: string
+}
+
 const ProfilePicture = () => {
   return (
-    <Avatar className="aspect-square h-14 w-auto">
+    <Avatar className="aspect-square h-full w-auto">
       <AvatarImage src="https://github.com/corned.png" />
       <AvatarFallback>73</AvatarFallback>
     </Avatar>
@@ -88,15 +94,15 @@ const Icon = () => {
 
 const Header = ({ children }) => {
   return (
-    <header className="shadow-xs sticky top-0 flex flex-row items-center  justify-between border-b border-gray-200 bg-white/70 px-5 py-8 backdrop-blur-xl">
+    <header className="shadow-xs sticky top-0 flex h-24 flex-row items-center justify-between border-b border-gray-200 bg-white/70 py-6 pl-10 pr-4 backdrop-blur-xl">
       {children}
     </header>
   )
 }
 
-const Task = ({ task }) => {
+const Task = ({ task }: { task: Task }) => {
   return (
-    <div className="shadow-xs flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-4">
+    <div className="flex flex-col gap-4 rounded-xl border border-b-4 border-gray-200 bg-white p-4">
       <div className="flex flex-row flex-wrap gap-2 rounded-lg bg-white">
         <p className="w-fit rounded-full bg-red-100 px-3 py-1 font-bold text-red-500">
           Copywriting
@@ -115,15 +121,9 @@ const Task = ({ task }) => {
   )
 }
 
-interface Task {
-  tags: [string]
-  body: string
-  date: string
-}
-
-const TaskColumn = ({ title, tasks }) => {
+const TaskColumn = ({ title, tasks }: { title: string; tasks: Task[] }) => {
   return (
-    <div className="flex min-w-80 flex-col gap-4">
+    <div className="flex min-w-80 flex-col gap-2">
       <h1 className="mb text-2xl font-bold">{title}</h1>
       {tasks.map((task) => (
         <Task task={task} />
@@ -160,15 +160,15 @@ function App() {
     <div className="grid h-full max-w-full grid-cols-main">
       <div className=" max-h-full overflow-y-auto">
         <Header>
-          <h1 className="text-5xl font-bold">Lerp Task Manager</h1>
-          <div className="flex h-full w-fit flex-row gap-2 transition-all">
+          <h1 className="text-4xl font-bold">My Workspace</h1>
+          <div className="flex h-full w-fit flex-row gap-1.5 transition-all">
             <ProfilePicture />
 
             {Array.from({ length: 6 }).map((_, i) => {
               return <ProfilePicture />
             })}
 
-            <div className="flex aspect-square h-14 flex-col items-center justify-center rounded-full border-2 border-dashed border-indigo-400  bg-white">
+            <div className="flex aspect-square h-full w-auto flex-col items-center justify-center rounded-full border-2 border-dashed border-indigo-400  bg-white">
               <Icon />
             </div>
           </div>
@@ -263,7 +263,7 @@ function App() {
             <div className="flex flex-col">
               <p className="text">
                 <span className="font-bold">Pim</span>
-                <span> mark a task as complete!</span>
+                <span> marked a task as complete!</span>
               </p>
               <p className="text-black/20">Aug 10</p>
             </div>
