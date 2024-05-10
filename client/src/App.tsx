@@ -3,7 +3,7 @@ import { Progress } from "./components/ui/progress"
 
 const ProfilePicture = () => {
   return (
-    <Avatar className="aspect-square h-full w-auto">
+    <Avatar className="aspect-square h-14 w-auto">
       <AvatarImage src="https://github.com/corned.png" />
       <AvatarFallback>73</AvatarFallback>
     </Avatar>
@@ -88,7 +88,7 @@ const Icon = () => {
 
 const Header = ({ children }) => {
   return (
-    <header className="mb-10 flex h-14 flex-row items-center justify-between px-5">
+    <header className="shadow-xs flex flex-row items-center justify-between border-b  border-gray-200 px-5 py-8">
       {children}
     </header>
   )
@@ -123,7 +123,7 @@ interface Task {
 
 const TaskColumn = ({ title, tasks }) => {
   return (
-    <div className="flex min-w-80 flex-col gap-4">
+    <div className="flex w-80 flex-col gap-4">
       <h1 className="mb text-2xl font-bold">{title}</h1>
       {tasks.map((task) => (
         <Task task={task} />
@@ -148,12 +148,17 @@ const tasks: Task[] = [
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     date: "Nov 24",
   },
+  {
+    tags: ["Illustration"],
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    date: "Nov 24",
+  },
 ]
 
 function App() {
   return (
-    <div className="grid grid-cols-main">
-      <div className="h-screen py-10">
+    <div className="grid h-full grid-cols-main overflow-hidden">
+      <div className="flex max-h-full flex-col">
         <Header>
           <h1 className="text-5xl font-bold">Lerp Task Manager</h1>
           <div className="flex h-full w-fit flex-row gap-2 transition-all">
@@ -163,14 +168,14 @@ function App() {
               return <ProfilePicture />
             })}
 
-            <div className="flex aspect-square flex-col items-center justify-center rounded-full border-2 border-dashed border-indigo-400  bg-white">
+            <div className="flex aspect-square h-14 flex-col items-center justify-center rounded-full border-2 border-dashed border-indigo-400  bg-white">
               <Icon />
             </div>
           </div>
         </Header>
 
         {/* Column containers */}
-        <div className="flex w-0 min-w-full flex-row gap-4 overflow-x-scroll px-5 pb-10">
+        <div className="flex h-1 grow flex-row gap-4 overflow-scroll px-5 py-10">
           <TaskColumn title="Ready to Start" tasks={tasks} />
           <TaskColumn title="In Progress" tasks={tasks} />
           <TaskColumn title="Needs Review" tasks={tasks} />
@@ -178,7 +183,7 @@ function App() {
         </div>
       </div>
 
-      <div className=" flex flex-col gap-4 border-l border-gray-200 px-5 py-10 shadow-lg">
+      <div className="flex flex-col gap-4 border-l border-gray-200 px-5 py-10 shadow-lg">
         <h1 className="text-2xl font-bold">Task Progress</h1>
 
         <div className="flex flex-col gap-4">
