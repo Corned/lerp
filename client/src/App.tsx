@@ -88,7 +88,7 @@ const Icon = () => {
 
 const Header = ({ children }) => {
   return (
-    <header className="shadow-xs flex flex-row items-center justify-between border-b  border-gray-200 px-5 py-8 sticky top-0 bg-white/70 backdrop-blur-xl">
+    <header className="shadow-xs sticky top-0 flex flex-row items-center  justify-between border-b border-gray-200 bg-white/70 px-5 py-8 backdrop-blur-xl">
       {children}
     </header>
   )
@@ -96,7 +96,7 @@ const Header = ({ children }) => {
 
 const Task = ({ task }) => {
   return (
-    <div className="flex flex-col gap-4 rounded-xl border border-gray-200 p-4 shadow-xs bg-white">
+    <div className="shadow-xs flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-4">
       <div className="flex flex-row flex-wrap gap-2 rounded-lg bg-white">
         <p className="w-fit rounded-full bg-red-100 px-3 py-1 font-bold text-red-500">
           Copywriting
@@ -123,7 +123,7 @@ interface Task {
 
 const TaskColumn = ({ title, tasks }) => {
   return (
-    <div className="flex flex-col gap-4 min-w-80">
+    <div className="flex min-w-80 flex-col gap-4">
       <h1 className="mb text-2xl font-bold">{title}</h1>
       {tasks.map((task) => (
         <Task task={task} />
@@ -175,7 +175,7 @@ function App() {
         </Header>
 
         {/* Column containers */}
-        <div className="flex gap-4 px-5 py-10 overflow-x-scroll">
+        <div className="flex gap-4 overflow-x-scroll px-5 py-10">
           <TaskColumn title="Ready to Start" tasks={tasks} />
           <TaskColumn title="In Progress" tasks={tasks} />
           <TaskColumn title="Needs Review" tasks={tasks} />
@@ -186,7 +186,7 @@ function App() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 border-l border-gray-200 px-5 py-10 shadow-xs bg-white">
+      <div className="shadow-xs flex flex-col gap-4 border-l border-gray-200 bg-white px-5 py-10">
         <h1 className="text-2xl font-bold">Task Progress</h1>
 
         <div className="flex flex-col gap-4">
