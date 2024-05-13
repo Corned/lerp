@@ -1,9 +1,23 @@
 import { DragEvent, useState } from "react"
+import { cn } from "@/lib/utils"
 
 type TaskCardPropTypes = {
   task: Task
-  onDragStart(event: DragEvent, task: Task): void,
-  onDragEnd(event: DragEvent, task: Task): void,
+  onDragStart(event: DragEvent, task: Task): void
+  onDragEnd(event: DragEvent, task: Task): void
+}
+
+const TagPill = ({ tag }: { tag: string }) => {
+  return (
+    <div
+      className={cn(
+        "w-fit rounded-full  px-6 py-1 font-bold",
+        tag === "Copywriting" ? "bg-red-400 text-red-500" : undefined,
+        tag === "Illustration" ? "bg-green-400 text-green-500" : undefined,
+        tag === "UI Design" ? "bg-blue-400 text-blue-500" : undefined
+      )}
+    ></div>
+  )
 }
 
 const TaskCard = ({ task, onDragStart, onDragEnd }: TaskCardPropTypes) => {
@@ -29,9 +43,9 @@ const TaskCard = ({ task, onDragStart, onDragEnd }: TaskCardPropTypes) => {
       {!isDragging && (
         <>
           <div className="gap flex flex-row flex-wrap gap-2 text-sm">
-            <div className="w-fit rounded-full bg-red-400 px-6 py-1 font-bold text-red-500"></div>
-            <div className="w-fit rounded-full bg-green-400 px-6 py-1 font-bold text-green-500"></div>
-            <div className="w-fit rounded-full bg-blue-400 px-6 py-1 font-bold text-blue-500"></div>
+            {task.tags.map((tag) => (
+              <TagPill tag={tag} />
+            ))}
           </div>
 
           <p className="text-md">

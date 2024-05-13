@@ -1,15 +1,14 @@
 import TaskCard from "./TaskCard"
 import { DragEvent } from "react"
 
-
 type TaskCategoryPropTypes = {
-  isTargetted: boolean,
-  title: string,
-  tasks: Task[],
-  onCategoryDragOver(event: DragEvent, title: string): void,
-  onCategoryDragLeft(event: DragEvent, title: string): void,
-  onTaskCardDragStart(event: DragEvent, task: Task): void,
-  onTaskCardDragEnd(event: DragEvent, task: Task): void,
+  isTargetted: boolean
+  title: string
+  tasks: Task[]
+  onCategoryDragOver(event: DragEvent, title: string): void
+  onCategoryDragLeft(event: DragEvent, title: string): void
+  onTaskCardDragStart(event: DragEvent, task: Task): void
+  onTaskCardDragEnd(event: DragEvent, task: Task): void
 }
 
 const TaskCategory = ({

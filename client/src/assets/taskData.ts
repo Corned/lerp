@@ -36,7 +36,7 @@ const tasks: Task[] = [
   },
   {
     id: 6,
-    tags: ["Illustration"],
+    tags: ["UI Design", "Illustration"],
     category: "In Progress",
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     date: "Nov 24",
