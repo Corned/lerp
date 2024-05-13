@@ -20,7 +20,7 @@ const Workspace = () => {
         </Header>
 
         {/* Task Category Container */}
-        <div className="flex gap-4 overflow-x-scroll pl-10 pr-5 py-10">
+        <div className="flex gap-4 overflow-x-scroll py-10 pl-10 pr-5">
           <TaskCategory title="Ready to Start" tasks={taskData} />
           <TaskCategory title="In Progress" tasks={taskData} />
           <TaskCategory title="Needs Review" tasks={taskData} />
