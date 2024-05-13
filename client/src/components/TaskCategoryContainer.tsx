@@ -3,10 +3,10 @@ import { DragEvent, useState } from "react"
 import taskData from "@/assets/taskData"
 
 const TaskCategoryContainer = () => {
-  const [tasks, setTasks] = useState(taskData)
-  const [targetCategory, setTargetCategory] = useState(null)
+  const [ _tasks, setTasks ] = useState<Task[]>(taskData)
+  const [ targetCategory, setTargetCategory ] = useState<string | null>(null)
 
-  const moveTaskToCategory = (taskId, categoryName) => {
+  const moveTaskToCategory = (taskId: number, categoryName: string) => {    
     setTasks((oldTasks) => {
       return oldTasks.map((task) => {
         if (taskId === task.id) {
@@ -18,11 +18,11 @@ const TaskCategoryContainer = () => {
     })
   }
 
-  const onTaskCardDragStart = (event, task) => {
-    // console.log("start", task);
+  const onTaskCardDragStart = (_event: DragEvent, _task: Task) => {
+   //console.log("start", _task);
   }
 
-  const onTaskCardDragEnd = (event, task) => {
+  const onTaskCardDragEnd = (_event: DragEvent, task: Task) => {
     if (!targetCategory) {
       return
     }
@@ -31,13 +31,16 @@ const TaskCategoryContainer = () => {
     setTargetCategory(null)
   }
 
-  const onCategoryDragOver = (event, category) => {
+  const onCategoryDragOver = (_event: DragEvent, category: string) => {
     setTargetCategory(category)
   }
 
-  const onCategoryDragLeft = (event, category) => {
+  const onCategoryDragLeft = (_event: DragEvent, _category: string) => {
     //console.log("category left", category);
   }
+
+
+
 
   const categories = [
     {
@@ -51,7 +54,7 @@ const TaskCategoryContainer = () => {
   ].map(({ name, tasks }) => {
     return {
       name,
-      tasks: taskData.filter((task) => task.category === name),
+      tasks: taskData.filter((task) => task.category === name)
     }
   })
 

@@ -2,19 +2,19 @@ import { DragEvent, useState } from "react"
 
 type TaskCardPropTypes = {
   task: Task
-  onDrag(event: DragEvent<HTMLDivElement>): void
-  onDragEnd(event: DragEvent<HTMLDivElement>): void
+  onDragStart(event: DragEvent, task: Task): void,
+  onDragEnd(event: DragEvent, task: Task): void,
 }
 
-const TaskCard = ({ task, onDrag, onDragEnd }: TaskCardPropTypes) => {
+const TaskCard = ({ task, onDragStart, onDragEnd }: TaskCardPropTypes) => {
   const [isDragging, setDragging] = useState(false)
 
-  const handleDragStart = (event: DragEvent<HTMLDivElement>) => {
+  const handleDragStart = (_event: DragEvent) => {
     setDragging(true)
-    onDrag(event, task)
+    onDragStart(_event, task)
   }
 
-  const handleDragEnd = (event: DragEvent<HTMLDivElement>) => {
+  const handleDragEnd = (event: DragEvent) => {
     setDragging(false)
     onDragEnd(event, task)
   }
