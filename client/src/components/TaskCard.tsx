@@ -8,14 +8,18 @@ type TaskCardPropTypes = {
 }
 
 const TagPill = ({ tag }: { tag: string }) => {
+  let color = "gray"
+  if (tag === "Copywriting") {
+    color = "red"
+  } else if (tag === "Illustration") {
+    color = "green"
+  } else if (tag === "UI Design") {
+    color = "blue"
+  }
+
   return (
     <div
-      className={cn(
-        "w-fit rounded-full  px-6 py-1 font-bold",
-        tag === "Copywriting" ? "bg-red-400 text-red-500" : undefined,
-        tag === "Illustration" ? "bg-green-400 text-green-500" : undefined,
-        tag === "UI Design" ? "bg-blue-400 text-blue-500" : undefined
-      )}
+      className={`w-fit rounded-full  px-6 py-1 font-bold bg-${color}-400 text-${color}-500`}
     ></div>
   )
 }
