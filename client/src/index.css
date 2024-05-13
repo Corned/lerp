@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
   box-sizing: border-box;
 }
@@ -34,7 +33,6 @@
   background-color: black;
   height: 100%;
   width: 100%;
-
 
   grid-row: 1;
   grid-column: 5;
