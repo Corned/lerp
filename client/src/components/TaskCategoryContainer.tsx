@@ -45,7 +45,7 @@ const TaskCategoryContainer = () => {
     tasks: Task[],
   }
 
-  let categories: CategoryData[] = [
+  const categories: CategoryData[] = [
     {
       name: "Ready to Start",
       tasks: [],
@@ -54,12 +54,10 @@ const TaskCategoryContainer = () => {
       name: "In Progress",
       tasks: [],
     },
-  ]
-  
-  categories = categories.map(({ name, tasks }) => {
+  ].map(({ name }) => {
     return {
       name,
-      tasks: tasks.filter((task) => task.category === name)
+      tasks: taskData.filter((task) => task.category === name)
     }
   })
 
