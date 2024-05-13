@@ -1,14 +1,11 @@
 import { Progress } from "../components/ui/progress"
 
-import TaskCategory from "../components/TaskCategory"
-
 import { FolderPlusIcon, SpeechIcon, CheckIcon } from "../components/icon"
 
 import Header from "../components/WorkspaceHeader"
 
-import taskData from "../assets/taskData"
-
 import WorkspaceMembers from "../components/WorkspaceMembers"
+import TaskCategoryContainer from "./TaskCategoryContainer"
 
 const Workspace = () => {
   return (
@@ -20,15 +17,7 @@ const Workspace = () => {
         </Header>
 
         {/* Task Category Container */}
-        <div className="flex gap-4 overflow-x-scroll py-10 pl-10 pr-5">
-          <TaskCategory title="Ready to Start" tasks={taskData} />
-          <TaskCategory title="In Progress" tasks={taskData} />
-          <TaskCategory title="Needs Review" tasks={taskData} />
-          <TaskCategory title="Complete" tasks={taskData} />
-          <TaskCategory title="Test" tasks={taskData} />
-          <TaskCategory title="Test" tasks={taskData} />
-          <TaskCategory title="Test" tasks={taskData} />
-        </div>
+        <TaskCategoryContainer />
       </div>
 
       <div className="shadow-xs flex flex-col gap-4 border-l border-gray-200 bg-white px-5 py-10">
