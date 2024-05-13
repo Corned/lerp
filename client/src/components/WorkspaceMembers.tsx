@@ -6,7 +6,7 @@ const WorkspaceMembers = () => {
     <div className="flex h-full w-fit flex-row gap-1.5 transition-all">
       <ProfilePicture />
 
-      {Array.from({ length: 6 }).map((_, i) => {
+      {Array.from({ length: 6 }).map(() => {
         return <ProfilePicture />
       })}
 
