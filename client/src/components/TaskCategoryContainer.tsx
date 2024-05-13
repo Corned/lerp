@@ -39,10 +39,13 @@ const TaskCategoryContainer = () => {
     //console.log("category left", category);
   }
 
+// Grahh
+  type CategoryData = {
+    name: string,
+    tasks: Task[],
+  }
 
-
-
-  const categories = [
+  let categories: CategoryData[] = [
     {
       name: "Ready to Start",
       tasks: [],
@@ -51,10 +54,12 @@ const TaskCategoryContainer = () => {
       name: "In Progress",
       tasks: [],
     },
-  ].map(({ name, tasks }) => {
+  ]
+  
+  categories = categories.map(({ name, tasks }) => {
     return {
       name,
-      tasks: taskData.filter((task) => task.category === name)
+      tasks: tasks.filter((task) => task.category === name)
     }
   })
 
