@@ -2,7 +2,7 @@ import { Progress } from "../components/ui/progress"
 
 import TaskCategory from "../components/TaskCategory"
 
-import { FolderPlusIcon, SpeechIcon, CheckIcon, Icon } from "../components/icon"
+import { FolderPlusIcon, SpeechIcon, CheckIcon } from "../components/icon"
 
 import Header from "../components/WorkspaceHeader"
 
