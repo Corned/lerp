@@ -1,6 +1,5 @@
 import { ChevronDown, Home } from "lucide-react"
 import ProfilePicture from "./components/ProfilePicture"
-import Workspace from "./routes/Workspace"
 import { Outlet } from "react-router-dom"
 
 const App = () => {
