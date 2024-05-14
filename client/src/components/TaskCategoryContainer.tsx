@@ -19,7 +19,7 @@ const TaskCategoryContainer = () => {
   }
 
   const onTaskCardDragStart = (_event: DragEvent, _task: Task) => {
-    //console.log("start", _task);
+    console.log(_event)
   }
 
   const onTaskCardDragEnd = (_event: DragEvent, task: Task) => {

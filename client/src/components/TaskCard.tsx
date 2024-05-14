@@ -45,7 +45,7 @@ const TaskCard = ({ task, onDragStart, onDragEnd }: TaskCardPropTypes) => {
     >
       {!isDragging && (
         <>
-          <div className="gap flex flex-row flex-wrap gap-2 text-sm">
+          <div className="gap flex flex-row flex-wrap gap-2 text-sm ">
             {task.tags.map((tag) => (
               <TagPill tag={tag} />
             ))}

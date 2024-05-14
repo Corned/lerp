@@ -5,7 +5,7 @@ import { FolderPlusIcon, SpeechIcon, CheckIcon } from "../components/icon"
 import Header from "../components/WorkspaceHeader"
 
 import WorkspaceMembers from "../components/WorkspaceMembers"
-import TaskCategoryContainer from "./TaskCategoryContainer"
+import TaskCategoryContainer from "../components/TaskCategoryContainer"
 
 const Workspace = () => {
   return (
