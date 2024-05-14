@@ -3,7 +3,7 @@ import exampleImage from "../assets/example.png"
 
 const Header = () => {
   return (
-    <div className="relative flex select-none flex-col items-start gap-4 overflow-hidden rounded-xl bg-indigo-400 p-20 text-white">
+    <header className="relative flex select-none flex-col items-start gap-4 overflow-hidden rounded-xl bg-indigo-400 p-20 text-white">
       <p className="z-20 font-rubik-mono text-7xl">Lerp</p>
       <p className="z-20 font-rubik-mono text-7xl">Task</p>
       <p className="z-20 font-rubik-mono text-7xl">Manager</p>
@@ -14,23 +14,23 @@ const Header = () => {
         className="max-w-1/2 absolute right-0 top-0 min-h-full w-3/5 object-cover"
         src={exampleImage}
       />
-    </div>
+    </header>
   )
 }
 
 const Features = () => {
   return (
-    <div className="grid h-60 grid-cols-3 gap-10">
+    <article className="grid h-60 grid-cols-3 gap-10">
       <div className="rounded-xl bg-gray-200"></div>
       <div className="rounded-xl bg-gray-200"></div>
       <div className="rounded-xl bg-gray-200"></div>
-    </div>
+    </article>
   )
 }
 
 const Index = () => {
   return (
-    <div className="mx-auto mt-20 flex w-[1200px] flex-col gap-10">
+    <main className="mx-auto mt-20 flex w-[1200px] flex-col gap-10">
       <Header />
 
       <blockquote
@@ -73,7 +73,7 @@ const Index = () => {
           <p>shadcn/ui</p>
         </div>
       </footer>
-    </div>
+    </main>
   )
 }
 
