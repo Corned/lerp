@@ -74,6 +74,10 @@ module.exports = {
       gridTemplateColumns: {
         main: "1fr 290px",
       },
+      fontFamily: {
+        "rubik": [ "Rubik", "sans-serif" ],
+        "rubik-mono": [ "Rubik Mono One", "monospace" ]
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
