@@ -9,9 +9,12 @@ const TaskCategoryContainer = () => {
 
   console.log(data)
 
+  // IS ISNT USED ANYMORE
+  // NEED TO MUTATE DB
   const [_tasks, setTasks] = useState<Task[]>(taskData)
   const [targetCategory, setTargetCategory] = useState<string | null>(null)
 
+  // USELESS D:
   const moveTaskToCategory = (taskId: number, categoryName: string) => {
     setTasks((oldTasks) => {
       return oldTasks.map((task) => {
