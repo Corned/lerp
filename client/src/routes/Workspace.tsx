@@ -10,14 +10,18 @@ const Workspace = () => {
   const { isLoading, data } = useGetWorkspaceByIdQuery(1)
 
   if (isLoading) {
-    return <p className="p-10 w-full text-center text-6xl font-rubik-mono">Loading...</p>
+    return (
+      <p className="w-full p-10 text-center font-rubik-mono text-6xl">
+        Loading...
+      </p>
+    )
   }
 
   return (
     <div className="grid grid-cols-[1fr_290px] overflow-hidden">
-      <div className="overflow-x-hidden overflow-y-scroll flex flex-col">
+      <div className="flex flex-col overflow-x-hidden overflow-y-scroll">
         <Header>
-          <h1 className="text-4xl font-bold">{ data?.name }</h1>
+          <h1 className="text-4xl font-bold">{data?.name}</h1>
           <WorkspaceMembers />
         </Header>
 

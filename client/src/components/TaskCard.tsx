@@ -41,24 +41,16 @@ const TaskCard = ({ task, onDragStart, onDragEnd }: TaskCardPropTypes) => {
       draggable={true}
       onDrag={(event) => handleDragStart(event)}
       onDragEnd={(event) => handleDragEnd(event)}
-      className="flex flex-col gap-2 rounded-xl border border-b-[3px] border-gray-200 bg-white p-4"
+      className={`${isDragging && "scale-95"} flex flex-col gap-2 rounded-xl border border-b-[3px] border-gray-200 bg-white p-4 transition-all`}
     >
-      {!isDragging && (
-        <>
-          <div className="gap flex flex-row flex-wrap gap-2 text-sm ">
-            {task.tags.map((tag) => (
-              <TagPill tag={tag} />
-            ))}
-          </div>
+      <div className="gap flex flex-row flex-wrap gap-2 text-sm ">
+        {task.tags.map((tag) => (
+          <TagPill tag={tag} />
+        ))}
+      </div>
 
-          <p className="text-md">
-            {task.body}
-          </p>
-          <p>{task.date}</p>
-        </>
-      )}
-
-      {isDragging && <p className="text-center">Dragging \(◎o◎)/</p>}
+      <p className="text-md">{task.body}</p>
+      <p>{task.date}</p>
     </div>
   )
 }

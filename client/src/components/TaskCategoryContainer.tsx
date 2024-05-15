@@ -7,11 +7,10 @@ import { useGetWorkspaceByIdQuery } from "@/services/workspaceApi"
 const TaskCategoryContainer = () => {
   const { data, error, isLoading } = useGetWorkspaceByIdQuery(1)
 
-  console.log(data);
-  
+  console.log(data)
 
   const [_tasks, setTasks] = useState<Task[]>(taskData)
-  const [targetCategory, setTargetCategory] = useState<string | null>(null) 
+  const [targetCategory, setTargetCategory] = useState<string | null>(null)
 
   const moveTaskToCategory = (taskId: number, categoryName: string) => {
     setTasks((oldTasks) => {
@@ -53,9 +52,7 @@ const TaskCategoryContainer = () => {
     position: number
   }
 
-  const categories: CategoryData[] = [
-    ...data.categories,
-  ].map((category) => {
+  const categories: CategoryData[] = [...data.categories].map((category) => {
     return {
       ...category,
       tasks: data.tasks.filter((task) => task.categoryId === category.id),
@@ -63,7 +60,7 @@ const TaskCategoryContainer = () => {
   })
 
   return (
-    <div className="flex gap-2 overflow-x-scroll grow py-10 pl-10 pr-5">
+    <div className="flex grow gap-2 overflow-x-scroll py-10 pl-10 pr-5">
       {categories.map(({ name, tasks }) => (
         <TaskCategory
           title={name}
@@ -75,6 +72,10 @@ const TaskCategoryContainer = () => {
           onCategoryDragLeft={onCategoryDragLeft}
         />
       ))}
+
+      <button className="min-w-[300px] max-w-[300px] rounded-xl border-4 border-dashed border-gray-100 bg-gray-100/20 text-2xl font-bold">
+        + New Column
+      </button>
     </div>
   )
 }

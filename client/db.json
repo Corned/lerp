@@ -3,28 +3,28 @@
     {
       "id": 1,
       "name": "Lerp Development",
-      "categories": [    
-        { 
+      "categories": [
+        {
           "id": 1,
           "name": "Ready to Start",
           "position": 1
         },
-        { 
+        {
           "id": 2,
           "name": "In Progress",
           "position": 2
         },
-        { 
+        {
           "id": 3,
           "name": "Ready to Test",
           "position": 3
         },
-        { 
+        {
           "id": 4,
           "name": "Complete",
           "position": 4
         },
-        { 
+        {
           "id": 5,
           "name": "Shipped",
           "position": 5
