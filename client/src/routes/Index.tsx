@@ -52,6 +52,8 @@ const Index = () => {
           <a
             href="https://github.com/corned/lerp"
             className="transition-all hover:pb-1"
+            target="_blank"
+            referrerPolicy="no-referrer"
           >
             <Github />
           </a>
