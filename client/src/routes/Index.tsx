@@ -37,7 +37,7 @@ const Index = () => {
         cite="https://github.com/corned/"
         className="my-10 flex flex-col items-center gap-1"
       >
-        <p className="font-rubik text-2xl">
+        <p className="font-rubik font-bold text-2xl">
           Wowwee! Lerp has improved my productivity by <i>at least</i> 100%!
         </p>
         <footer className="text-xl">
