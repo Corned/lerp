@@ -68,6 +68,7 @@ const Index = () => {
           <p>React</p>
           <p>TypeScript</p>
           <p>Redux Toolkit</p>
+          <p>RTK Query</p>
           <p>TailwindCSS</p>
           <p>Lucide Icons</p>
           <p>shadcn/ui</p>
