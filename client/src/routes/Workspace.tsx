@@ -4,8 +4,17 @@ import { FolderPlusIcon, SpeechIcon, CheckIcon } from "@/components/icon"
 import Header from "@/components/WorkspaceHeader"
 import WorkspaceMembers from "@/components/WorkspaceMembers"
 import TaskCategoryContainer from "@/components/TaskCategoryContainer"
+import { useGetTasksByWorkspaceIdQuery } from "@/services/taskApi"
 
 const Workspace = () => {
+  const { data, error, isLoading } = useGetTasksByWorkspaceIdQuery(1)
+
+  console.log(data, error, isLoading);
+  
+
+
+
+
   return (
     <div className="grid grid-cols-[1fr_290px] overflow-hidden">
       <div className="overflow-x-hidden overflow-y-scroll">
