@@ -1,0 +1,107 @@
+{
+  "workspaces": [
+    {
+      "id": 1,
+      "name": "Lerp Dev",
+      "categories": [
+        {
+          "name": "Ready to Start",
+          "position": 1,
+          "tasks": [ 1, 2, 3 ]
+        },
+        {
+          "name": "In Progress",
+          "position": 2,
+          "tasks": [ 4, 5, 6 ]
+        },
+        {
+          "name": "Ready to Test",
+          "position": 3,
+          "tasks": [ 7, 8 ]
+        },
+        {
+          "name": "Complete",
+          "position": 4,
+          "tasks": [ ]
+        },
+        {
+          "name": "Shipped",
+          "position": 5,
+          "tasks": [ 9, 10 ]
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "tags": [ "Frontend", "Backend" ],
+      "body": "Implement feature that allows user to add and remove tags from tasks.",
+      "date": "Nov 24"
+    },
+    {
+      "id": 2,
+      "tags": [ "Backend" ],
+      "body": "Set up JSON Server for easy testing.",
+      "date": "Nov 24"
+    },
+    {
+      "id": 3,
+      "tags": [ "Frontend" ,"Backend" ],
+      "body": "Implement account creation and signing in.",
+      "date": "Nov 24"
+    },
+    {
+      "id": 4,
+      "tags": [ "Frontend" ],
+      "body": "Set up state management using Redux Toolkit",
+      "date": "Nov 24"
+    },
+    {
+      "id": 5,
+      "tags": [ "Frontend" ],
+      "body": "Create a wonderful front page for Lerp.",
+      "date": "Nov 24"
+    },
+    {
+      "id": 6,
+      "tags": [ "Frontend" ],
+      "body": "Dynamically update task progress to match used tags.",
+      "date": "Nov 24"
+    },
+    {
+      "id": 7,
+      "tags": [ "Frontend" ],
+      "body": "Move tasks between category columns.",
+      "date": "Nov 24"
+    },
+    {
+      "id": 8,
+      "tags": [ "Frontend" ],
+      "body": "I don't know man, I just need more test data.",
+      "date": "Nov 24"
+    },
+    {
+      "id": 9,
+      "tags": [ "Frontend" ],
+      "body": "Come up with a neat design.",
+      "date": "Nov 24"
+    },
+    {
+      "id": 10,
+      "tags": [ "Frontend" ],
+      "body": "Write down a bunch of test data.",
+      "date": "Nov 24"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Frontend",
+      "color": "blue"
+    },
+    {
+      "name": "Backend",
+      "color": "red"
+    }
+  ]
+}
