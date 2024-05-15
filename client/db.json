@@ -7,27 +7,27 @@
         {
           "name": "Ready to Start",
           "position": 1,
-          "tasks": [ 1, 2, 3 ]
+          "tasks": [1, 2, 3]
         },
         {
           "name": "In Progress",
           "position": 2,
-          "tasks": [ 4, 5, 6 ]
+          "tasks": [4, 5, 6]
         },
         {
           "name": "Ready to Test",
           "position": 3,
-          "tasks": [ 7, 8 ]
+          "tasks": [7, 8]
         },
         {
           "name": "Complete",
           "position": 4,
-          "tasks": [ ]
+          "tasks": []
         },
         {
           "name": "Shipped",
           "position": 5,
-          "tasks": [ 9, 10 ]
+          "tasks": [9, 10]
         }
       ]
     }
@@ -36,7 +36,7 @@
     {
       "id": 1,
       "workspace": 1,
-      "tags": [ "Frontend", "Backend" ],
+      "tags": ["Frontend", "Backend"],
       "body": "Implement feature that allows user to add and remove tags from tasks.",
       "position": 0,
       "date": "Nov 24"
@@ -44,7 +44,7 @@
     {
       "id": 2,
       "workspace": 1,
-      "tags": [ "Backend" ],
+      "tags": ["Backend"],
       "body": "Set up JSON Server for easy testing.",
       "position": 1,
       "date": "Nov 24"
@@ -52,7 +52,7 @@
     {
       "id": 3,
       "workspace": 1,
-      "tags": [ "Frontend" ,"Backend" ],
+      "tags": ["Frontend", "Backend"],
       "body": "Implement account creation and signing in.",
       "position": 2,
       "date": "Nov 24"
@@ -60,7 +60,7 @@
     {
       "id": 4,
       "workspace": 1,
-      "tags": [ "Frontend" ],
+      "tags": ["Frontend"],
       "body": "Set up state management using Redux Toolkit",
       "position": 0,
       "date": "Nov 24"
@@ -68,7 +68,7 @@
     {
       "id": 5,
       "workspace": 1,
-      "tags": [ "Frontend" ],
+      "tags": ["Frontend"],
       "body": "Create a wonderful front page for Lerp.",
       "position": 1,
       "date": "Nov 24"
@@ -76,7 +76,7 @@
     {
       "id": 6,
       "workspace": 1,
-      "tags": [ "Frontend" ],
+      "tags": ["Frontend"],
       "body": "Dynamically update task progress to match used tags.",
       "position": 2,
       "date": "Nov 24"
@@ -84,7 +84,7 @@
     {
       "id": 7,
       "workspace": 1,
-      "tags": [ "Frontend" ],
+      "tags": ["Frontend"],
       "body": "Move tasks between category columns.",
       "position": 0,
       "date": "Nov 24"
@@ -92,7 +92,7 @@
     {
       "id": 8,
       "workspace": 1,
-      "tags": [ "Frontend" ],
+      "tags": ["Frontend"],
       "body": "I don't know man, I just need more test data.",
       "position": 1,
       "date": "Nov 24"
@@ -100,7 +100,7 @@
     {
       "id": 9,
       "workspace": 1,
-      "tags": [ "Frontend" ],
+      "tags": ["Frontend"],
       "body": "Come up with a neat design.",
       "position": 0,
       "date": "Nov 24"
@@ -108,7 +108,7 @@
     {
       "id": 10,
       "workspace": 1,
-      "tags": [ "Frontend" ],
+      "tags": ["Frontend"],
       "body": "Write down a bunch of test data.",
       "position": 1,
       "date": "Nov 24"
