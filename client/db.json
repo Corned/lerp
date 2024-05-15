@@ -35,6 +35,7 @@
   "tasks": [
     {
       "id": 1,
+      "workspace": 1,
       "tags": [ "Frontend", "Backend" ],
       "body": "Implement feature that allows user to add and remove tags from tasks.",
       "position": 0,
@@ -42,6 +43,7 @@
     },
     {
       "id": 2,
+      "workspace": 1,
       "tags": [ "Backend" ],
       "body": "Set up JSON Server for easy testing.",
       "position": 1,
@@ -49,6 +51,7 @@
     },
     {
       "id": 3,
+      "workspace": 1,
       "tags": [ "Frontend" ,"Backend" ],
       "body": "Implement account creation and signing in.",
       "position": 2,
@@ -56,6 +59,7 @@
     },
     {
       "id": 4,
+      "workspace": 1,
       "tags": [ "Frontend" ],
       "body": "Set up state management using Redux Toolkit",
       "position": 0,
@@ -63,6 +67,7 @@
     },
     {
       "id": 5,
+      "workspace": 1,
       "tags": [ "Frontend" ],
       "body": "Create a wonderful front page for Lerp.",
       "position": 1,
@@ -70,6 +75,7 @@
     },
     {
       "id": 6,
+      "workspace": 1,
       "tags": [ "Frontend" ],
       "body": "Dynamically update task progress to match used tags.",
       "position": 2,
@@ -77,6 +83,7 @@
     },
     {
       "id": 7,
+      "workspace": 1,
       "tags": [ "Frontend" ],
       "body": "Move tasks between category columns.",
       "position": 0,
@@ -84,6 +91,7 @@
     },
     {
       "id": 8,
+      "workspace": 1,
       "tags": [ "Frontend" ],
       "body": "I don't know man, I just need more test data.",
       "position": 1,
@@ -91,6 +99,7 @@
     },
     {
       "id": 9,
+      "workspace": 1,
       "tags": [ "Frontend" ],
       "body": "Come up with a neat design.",
       "position": 0,
@@ -98,6 +107,7 @@
     },
     {
       "id": 10,
+      "workspace": 1,
       "tags": [ "Frontend" ],
       "body": "Write down a bunch of test data.",
       "position": 1,

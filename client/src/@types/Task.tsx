@@ -8,6 +8,7 @@ type Task = {
 
 type Task_ = {
   id: number
+  workspace: number
   tags: string[]
   body: string
   position: number
