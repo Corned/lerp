@@ -23,7 +23,7 @@ const TaskCategory = ({
 }: TaskCategoryPropTypes) => {
   return (
     <div
-      className={`mb-auto flex w-80 flex-col gap-2 rounded-xl bg-gray-100/70 p-1 ${isTargetted ? "outline outline-2 outline-indigo-400" : ""}`}
+      className={`mb-auto flex min-w-[300px] max-w-[300px] flex-col gap-2 rounded-xl bg-gray-100/70 p-1 ${isTargetted ? "outline outline-2 outline-indigo-400" : ""}`}
       onDragOver={(event) => onCategoryDragOver(event, title)}
       onDragLeave={(event) => onCategoryDragLeft(event, title)}
     >

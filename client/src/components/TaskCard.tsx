@@ -8,12 +8,12 @@ type TaskCardPropTypes = {
 
 const TagPill = ({ tag }: { tag: string }) => {
   let color = "gray"
-  if (tag === "Copywriting") {
-    color = "red"
-  } else if (tag === "Illustration") {
-    color = "green"
-  } else if (tag === "UI Design") {
+  if (tag === "Frontend") {
     color = "blue"
+  } else if (tag === "Backend") {
+    color = "red"
+  } else if (tag === "UI Design") {
+    color = "green"
   }
 
   return (
@@ -52,7 +52,7 @@ const TaskCard = ({ task, onDragStart, onDragEnd }: TaskCardPropTypes) => {
           </div>
 
           <p className="text-md">
-            {task.id}: {task.body}
+            {task.body}
           </p>
           <p>{task.date}</p>
         </>

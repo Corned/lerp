@@ -4,19 +4,20 @@ import { FolderPlusIcon, SpeechIcon, CheckIcon } from "@/components/icon"
 import Header from "@/components/WorkspaceHeader"
 import WorkspaceMembers from "@/components/WorkspaceMembers"
 import TaskCategoryContainer from "@/components/TaskCategoryContainer"
-import { useGetTasksByWorkspaceIdQuery } from "@/services/taskApi"
 import { useGetWorkspaceByIdQuery } from "@/services/workspaceApi"
 
 const Workspace = () => {
-  const { data, error, isLoading } = useGetWorkspaceByIdQuery(1)
+  const { isLoading, data } = useGetWorkspaceByIdQuery(1)
 
-  console.log(data, error, isLoading)
+  if (isLoading) {
+    return <p className="p-10 w-full text-center text-6xl font-rubik-mono">Loading...</p>
+  }
 
   return (
     <div className="grid grid-cols-[1fr_290px] overflow-hidden">
-      <div className="overflow-x-hidden overflow-y-scroll">
+      <div className="overflow-x-hidden overflow-y-scroll flex flex-col">
         <Header>
-          <h1 className="text-4xl font-bold">My Workspace</h1>
+          <h1 className="text-4xl font-bold">{ data?.name }</h1>
           <WorkspaceMembers />
         </Header>
 

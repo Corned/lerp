@@ -2,10 +2,16 @@ import { DragEvent, useState } from "react"
 
 import TaskCategory from "@/components/TaskCategory"
 import taskData from "@/assets/taskData"
+import { useGetWorkspaceByIdQuery } from "@/services/workspaceApi"
 
 const TaskCategoryContainer = () => {
+  const { data, error, isLoading } = useGetWorkspaceByIdQuery(1)
+
+  console.log(data);
+  
+
   const [_tasks, setTasks] = useState<Task[]>(taskData)
-  const [targetCategory, setTargetCategory] = useState<string | null>(null)
+  const [targetCategory, setTargetCategory] = useState<string | null>(null) 
 
   const moveTaskToCategory = (taskId: number, categoryName: string) => {
     setTasks((oldTasks) => {
@@ -44,26 +50,20 @@ const TaskCategoryContainer = () => {
   type CategoryData = {
     name: string
     tasks: Task[]
+    position: number
   }
 
   const categories: CategoryData[] = [
-    {
-      name: "Ready to Start",
-      tasks: [],
-    },
-    {
-      name: "In Progress",
-      tasks: [],
-    },
-  ].map(({ name }) => {
+    ...data.categories,
+  ].map((category) => {
     return {
-      name,
-      tasks: taskData.filter((task) => task.category === name),
+      ...category,
+      tasks: data.tasks.filter((task) => task.categoryId === category.id),
     }
   })
 
   return (
-    <div className="flex gap-2 overflow-x-scroll py-10 pl-10 pr-5">
+    <div className="flex gap-2 overflow-x-scroll grow py-10 pl-10 pr-5">
       {categories.map(({ name, tasks }) => (
         <TaskCategory
           title={name}

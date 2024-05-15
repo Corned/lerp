@@ -5,7 +5,7 @@ export const workspaceApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/workspaces/" }),
   endpoints: (builder) => ({
     getWorkspaceById: builder.query({
-      query: (id) => `${id}`,
+      query: (id) => `${id}?_embed=tasks`,
     }),
   }),
 })
