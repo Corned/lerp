@@ -58,7 +58,7 @@ const TaskCard = ({ task, onDragStart, onDragEnd }: TaskCardPropTypes) => {
         </>
       )}
 
-      {isDragging && <p>Dragging :o</p>}
+      {isDragging && <p className="text-center">Dragging \(◎o◎)/</p>}
     </div>
   )
 }
