@@ -5,15 +5,12 @@ import Header from "@/components/WorkspaceHeader"
 import WorkspaceMembers from "@/components/WorkspaceMembers"
 import TaskCategoryContainer from "@/components/TaskCategoryContainer"
 import { useGetTasksByWorkspaceIdQuery } from "@/services/taskApi"
+import { useGetWorkspaceByIdQuery } from "@/services/workspaceApi"
 
 const Workspace = () => {
-  const { data, error, isLoading } = useGetTasksByWorkspaceIdQuery(1)
+  const { data, error, isLoading } = useGetWorkspaceByIdQuery(1)
 
-  console.log(data, error, isLoading);
-  
-
-
-
+  console.log(data, error, isLoading)
 
   return (
     <div className="grid grid-cols-[1fr_290px] overflow-hidden">

@@ -12,5 +12,7 @@ export const store = configureStore({
   },
 
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(taskApi.middleware),
+    getDefaultMiddleware()
+      .concat(taskApi.middleware)
+      .concat(workspaceApi.middleware),
 })
