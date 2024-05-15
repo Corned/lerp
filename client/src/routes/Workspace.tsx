@@ -1,11 +1,9 @@
-import { Progress } from "../components/ui/progress"
+import { Progress } from "@/components/ui/progress"
 
-import { FolderPlusIcon, SpeechIcon, CheckIcon } from "../components/icon"
-
-import Header from "../components/WorkspaceHeader"
-
-import WorkspaceMembers from "../components/WorkspaceMembers"
-import TaskCategoryContainer from "../components/TaskCategoryContainer"
+import { FolderPlusIcon, SpeechIcon, CheckIcon } from "@/components/icon"
+import Header from "@/components/WorkspaceHeader"
+import WorkspaceMembers from "@/components/WorkspaceMembers"
+import TaskCategoryContainer from "@/components/TaskCategoryContainer"
 
 const Workspace = () => {
   return (

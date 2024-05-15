@@ -1,5 +1,6 @@
-import TaskCategory from "./TaskCategory"
 import { DragEvent, useState } from "react"
+
+import TaskCategory from "@/components/TaskCategory"
 import taskData from "@/assets/taskData"
 
 const TaskCategoryContainer = () => {

@@ -1,5 +1,5 @@
-import ProfilePicture from "./ProfilePicture"
-import { Icon } from "./icon"
+import ProfilePicture from "@/components/ProfilePicture"
+import { Icon } from "@/components/icon"
 
 const WorkspaceMembers = () => {
   return (

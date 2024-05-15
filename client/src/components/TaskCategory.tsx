@@ -1,5 +1,6 @@
-import TaskCard from "./TaskCard"
 import { DragEvent } from "react"
+
+import TaskCard from "@/components/TaskCard"
 
 type TaskCategoryPropTypes = {
   isTargetted: boolean

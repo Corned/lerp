@@ -1,5 +1,5 @@
 import { Github } from "lucide-react"
-import exampleImage from "../assets/example.png"
+import exampleImage from "@/assets/example.png"
 
 const Header = () => {
   return (
