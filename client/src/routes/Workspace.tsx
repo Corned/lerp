@@ -5,6 +5,7 @@ import Header from "@/components/WorkspaceHeader"
 import WorkspaceMembers from "@/components/WorkspaceMembers"
 import TaskCategoryContainer from "@/components/TaskCategoryContainer"
 import { useGetWorkspaceByIdQuery } from "@/services/workspaceApi"
+import { SquarePlus } from "lucide-react"
 
 const Workspace = () => {
   const { isLoading, data } = useGetWorkspaceByIdQuery(1)
@@ -24,6 +25,17 @@ const Workspace = () => {
           <h1 className="text-4xl font-bold">{data?.name}</h1>
           <WorkspaceMembers />
         </Header>
+
+        <div className="pl-10 flex flex-row gap-4 pt-6">
+          <button className="border border-gray-200 p-2 rounded-md hover:bg-gray-100 flex flex-row gap-2">
+            <SquarePlus /> new task
+          </button>
+          <button className="border border-gray-200 p-2 rounded-md hover:bg-gray-100 flex flex-row gap-2">
+            <SquarePlus /> new column
+          </button>
+          <button className="border border-gray-200 p-2 rounded-md hover:bg-gray-100 flex flex-row gap-2">
+            <SquarePlus /> new task
+          </button>        </div>
 
         {/* Task Category Container */}
         <TaskCategoryContainer />

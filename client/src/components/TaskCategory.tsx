@@ -1,6 +1,7 @@
 import { DragEvent } from "react"
 
 import TaskCard from "@/components/TaskCard"
+import { Plus } from "lucide-react"
 
 type TaskCategoryPropTypes = {
   isTargetted: boolean
@@ -36,6 +37,10 @@ const TaskCategory = ({
           onDragEnd={onTaskCardDragEnd}
         />
       ))}
+
+      <button className="py-2 flex flex-row justify-center gap-2 bg-white rounded-xl border border-b-[3px] border-gray-200 hover:bg-gray-100/20 transition-all">
+        <Plus /> Create new task
+      </button>
     </div>
   )
 }
