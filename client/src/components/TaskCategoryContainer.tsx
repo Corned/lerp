@@ -3,32 +3,25 @@ import { DragEvent, useState } from "react"
 import TaskCategory from "@/components/TaskCategory"
 import taskData from "@/assets/taskData"
 import { useGetWorkspaceByIdQuery } from "@/services/workspaceApi"
+import { useUpdateTaskMutation } from "@/services/taskApi"
 
 const TaskCategoryContainer = () => {
   const { data, error, isLoading } = useGetWorkspaceByIdQuery(1)
+  const [ updateTask, result ] = useUpdateTaskMutation()
 
-  console.log(data)
+  console.log(result);
+  
 
-  // IS ISNT USED ANYMORE
-  // NEED TO MUTATE DB
-  const [_tasks, setTasks] = useState<Task[]>(taskData)
-  const [targetCategory, setTargetCategory] = useState<string | null>(null)
+  const [targetCategory, setTargetCategory] = useState<number | null>(null)
 
-  // USELESS D:
-  const moveTaskToCategory = (taskId: number, categoryName: string) => {
-    setTasks((oldTasks) => {
-      return oldTasks.map((task) => {
-        if (taskId === task.id) {
-          task.category = categoryName || task.category
-        }
-
-        return task
-      })
-    })
+  const moveTaskToCategory = (taskId: number, categoryId: number) => {
+    console.log(taskId, categoryId);
+    
+    updateTask({ id: taskId, categoryId })
   }
 
   const onTaskCardDragStart = (_event: DragEvent, _task: Task) => {
-    console.log(_event)
+    /* console.log(_event) */
   }
 
   const onTaskCardDragEnd = (_event: DragEvent, task: Task) => {
@@ -40,11 +33,11 @@ const TaskCategoryContainer = () => {
     setTargetCategory(null)
   }
 
-  const onCategoryDragOver = (_event: DragEvent, category: string) => {
+  const onCategoryDragOver = (_event: DragEvent, category: number) => {
     setTargetCategory(category)
   }
 
-  const onCategoryDragLeft = (_event: DragEvent, _category: string) => {
+  const onCategoryDragLeft = (_event: DragEvent, _category: number) => {
     //console.log("category left", category);
   }
 
@@ -52,6 +45,7 @@ const TaskCategoryContainer = () => {
   type CategoryData = {
     name: string
     tasks: Task[]
+    id: number
     position: number
   }
 
@@ -64,11 +58,12 @@ const TaskCategoryContainer = () => {
 
   return (
     <div className="flex grow gap-2 overflow-x-scroll py-10 pl-10 pr-5">
-      {categories.map(({ name, tasks }) => (
+      {categories.map(({ name, id, tasks }) => (
         <TaskCategory
           title={name}
+          id={id}
           tasks={tasks}
-          isTargetted={targetCategory === name}
+          isTargetted={targetCategory === id}
           onTaskCardDragStart={onTaskCardDragStart}
           onTaskCardDragEnd={onTaskCardDragEnd}
           onCategoryDragOver={onCategoryDragOver}
