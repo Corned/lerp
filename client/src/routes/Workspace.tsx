@@ -8,12 +8,20 @@ import { useGetWorkspaceByIdQuery } from "@/services/workspaceApi"
 import { Pencil, SquarePlus } from "lucide-react"
 
 const Workspace = () => {
-  const { isLoading, data } = useGetWorkspaceByIdQuery(1)
+  const { isLoading, data, isError } = useGetWorkspaceByIdQuery(1)
 
   if (isLoading) {
     return (
-      <p className="w-full p-10 text-center font-rubik-mono text-6xl">
+      <p className="w-full p-10 text-center font-rubik-mono text-3xl">
         Loading...
+      </p>
+    )
+  }
+
+  if (isError) {
+    return (
+      <p className="w-full p-10 text-center font-rubik-mono text-3xl">
+        Something went wrong...
       </p>
     )
   }
