@@ -4,7 +4,7 @@ import { FolderPlusIcon, SpeechIcon, CheckIcon } from "@/components/icon"
 import Header from "@/components/WorkspaceHeader"
 import WorkspaceMembers from "@/components/WorkspaceMembers"
 import TaskCategoryContainer from "@/components/TaskCategoryContainer"
-import { useGetWorkspaceByIdQuery } from "@/services/workspaceApi"
+import { useGetWorkspaceByIdQuery } from "@/services/api"
 import { Pencil, SquarePlus } from "lucide-react"
 
 const Workspace = () => {

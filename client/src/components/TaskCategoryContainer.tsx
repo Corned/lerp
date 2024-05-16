@@ -2,8 +2,7 @@ import { DragEvent, useState } from "react"
 
 import TaskCategory from "@/components/TaskCategory"
 import taskData from "@/assets/taskData"
-import { useGetWorkspaceByIdQuery } from "@/services/workspaceApi"
-import { useUpdateTaskMutation } from "@/services/taskApi"
+import { useGetWorkspaceByIdQuery, useUpdateTaskMutation } from "@/services/api"
 
 const TaskCategoryContainer = () => {
   const { data, error, isLoading } = useGetWorkspaceByIdQuery(1)
