@@ -38,7 +38,7 @@ const TaskCategory = ({
         />
       ))}
 
-      <button className="py-2 flex flex-row justify-center gap-2 bg-white rounded-xl border border-b-[3px] border-gray-200 hover:bg-gray-100/20 transition-all">
+      <button className="flex flex-row justify-center gap-2 rounded-xl border border-b-[3px] border-gray-200 bg-white py-2 transition-all hover:scale-105">
         <Plus /> Create new task
       </button>
     </div>

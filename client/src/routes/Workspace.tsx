@@ -5,7 +5,7 @@ import Header from "@/components/WorkspaceHeader"
 import WorkspaceMembers from "@/components/WorkspaceMembers"
 import TaskCategoryContainer from "@/components/TaskCategoryContainer"
 import { useGetWorkspaceByIdQuery } from "@/services/workspaceApi"
-import { SquarePlus } from "lucide-react"
+import { Pencil, SquarePlus } from "lucide-react"
 
 const Workspace = () => {
   const { isLoading, data } = useGetWorkspaceByIdQuery(1)
@@ -22,20 +22,23 @@ const Workspace = () => {
     <div className="grid grid-cols-[1fr_290px] overflow-hidden">
       <div className="flex flex-col overflow-x-hidden overflow-y-scroll">
         <Header>
-          <h1 className="text-4xl font-bold">{data?.name}</h1>
+          <h1 className="flex flex-row items-center gap-6 text-4xl font-bold">
+            {data?.name}
+          </h1>
           <WorkspaceMembers />
         </Header>
 
-        <div className="pl-10 flex flex-row gap-4 pt-6">
-          <button className="border border-gray-200 p-2 rounded-md hover:bg-gray-100 flex flex-row gap-2">
+        <div className="flex flex-row gap-4 pl-10 pt-6">
+          <button className="flex flex-row gap-2 rounded-md border border-gray-200 p-2 hover:bg-gray-100">
             <SquarePlus /> new task
           </button>
-          <button className="border border-gray-200 p-2 rounded-md hover:bg-gray-100 flex flex-row gap-2">
+          <button className="flex flex-row gap-2 rounded-md border border-gray-200 p-2 hover:bg-gray-100">
             <SquarePlus /> new column
           </button>
-          <button className="border border-gray-200 p-2 rounded-md hover:bg-gray-100 flex flex-row gap-2">
+          <button className="flex flex-row gap-2 rounded-md border border-gray-200 p-2 hover:bg-gray-100">
             <SquarePlus /> new task
-          </button>        </div>
+          </button>
+        </div>
 
         {/* Task Category Container */}
         <TaskCategoryContainer />

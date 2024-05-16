@@ -41,7 +41,7 @@ const TaskCard = ({ task, onDragStart, onDragEnd }: TaskCardPropTypes) => {
       draggable={true}
       onDrag={(event) => handleDragStart(event)}
       onDragEnd={(event) => handleDragEnd(event)}
-      className={`${isDragging && "scale-95"} flex flex-col gap-2 rounded-xl border border-b-[3px] border-gray-200 bg-white p-4 transition-all`}
+      className={`flex flex-col gap-2 rounded-xl border border-b-[3px] border-gray-200 bg-white p-4 transition-all ${isDragging ? "scale-95" : "hover:scale-105"} `}
     >
       <div className="gap flex flex-row flex-wrap gap-2 text-sm ">
         {task.tags.map((tag) => (
