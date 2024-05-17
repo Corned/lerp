@@ -24,7 +24,12 @@ const TagPill = ({ tag }: { tag: string }) => {
   )
 }
 
-const TaskCard = ({ task, onDragStart, onDragEnd, onDrag }: TaskCardPropTypes) => {
+const TaskCard = ({
+  task,
+  onDragStart,
+  onDragEnd,
+  onDrag,
+}: TaskCardPropTypes) => {
   const [isDragging, setDragging] = useState(false)
 
   const handleDragStart = (_event: DragEvent) => {
@@ -47,7 +52,9 @@ const TaskCard = ({ task, onDragStart, onDragEnd, onDrag }: TaskCardPropTypes) =
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
       onDrag={handleDrag}
-      className={`flex flex-col gap-2 rounded-xl border border-b-[3px] border-gray-200 bg-white p-4 transition-all ${isDragging ? "scale-95" : "hover:scale-105"} `}
+      className={`flex flex-col gap-2 rounded-xl border border-b-[3px] border-gray-200 bg-white p-4 transition-all ${isDragging ? "scale-95" : "hover:scale-105"}`}
+      data-id={task.id}
+      data-position={task.position}
     >
       <div className="gap flex flex-row flex-wrap gap-2 text-sm ">
         {task.tags.map((tag, index) => (
@@ -57,6 +64,9 @@ const TaskCard = ({ task, onDragStart, onDragEnd, onDrag }: TaskCardPropTypes) =
 
       <p className="text-md">{task.body}</p>
       <p>{task.date}</p>
+      <p>
+        {task.id}: p {task.position}
+      </p>
     </div>
   )
 }

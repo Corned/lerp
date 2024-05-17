@@ -1,39 +1,108 @@
-import { DragEvent, useState } from "react"
+import React, { DragEvent, useState } from "react"
 
 import TaskCategory from "@/components/TaskCategory"
 import { useGetWorkspaceByIdQuery, useUpdateTaskMutation } from "@/services/api"
 
 const TaskCategoryContainer = () => {
   const { data, error, isLoading } = useGetWorkspaceByIdQuery(1)
-  const [ updateTask, result ] = useUpdateTaskMutation()
+  const [updateTask, result] = useUpdateTaskMutation()
 
   const [targetCategory, setTargetCategory] = useState<number | null>(null)
+  const [draggedTask, setDraggedTask] = useState<Task | null>(null)
+
+  const [taskPatch, setTaskPatch] = useState([])
 
   const moveTaskToCategory = (taskId: number, categoryId: number) => {
-    console.log(taskId, categoryId);
-    
+    //console.log(taskId, categoryId)
+
     updateTask({ id: taskId, categoryId })
   }
 
-  const onTaskCardDragStart = (_event: DragEvent, _task: Task) => {
+  const onTaskCardDragStart = (_event: DragEvent, task: Task) => {
     /* console.log(_event) */
+    setDraggedTask(task)
   }
 
   const onTaskCardDrag = (_event: DragEvent, _task: Task) => {
-
+    /*     console.log(_task); */
   }
 
-  const onTaskCardDragEnd = (_event: DragEvent, task: Task) => {
+  const onTaskCardDragEnd = async (_event: DragEvent, task: Task) => {
     if (!targetCategory) {
       return
     }
 
-    moveTaskToCategory(task.id, targetCategory)
-    setTargetCategory(null)
+    const patch = taskPatch.map((patch) => {
+      if (patch.id === task.id) {
+        return { ...patch, categoryId: targetCategory }
+      }
+
+      return patch
+    })
+
+    for (const x of patch) {
+      await updateTask(x)
+    }
+
+    setTargetCategory(-1)
+    setDraggedTask(null)
   }
 
-  const onCategoryDragOver = (_event: DragEvent, category: number) => {
+  const onCategoryDragOver = (
+    event: DragEvent,
+    taskContainerElementRef: React.RefObject<HTMLDivElement>,
+    category: number
+  ) => {
     setTargetCategory(category)
+
+    if (!taskContainerElementRef.current) {
+      return
+    }
+
+    if (!draggedTask) {
+      return
+    }
+
+    const mousePositionY = event.pageY
+    const taskElements: HTMLCollection =
+      taskContainerElementRef.current.children
+
+    let taskElementData = [
+      {
+        id: draggedTask.id,
+        position: mousePositionY,
+      },
+    ]
+
+    for (const taskElement of taskElements) {
+      // Ignore any non-tasks
+      if (!taskElement.dataset || !taskElement.dataset.id) {
+        continue
+      }
+
+      // Ignore currently dragged taskElement
+      if (Number(taskElement.dataset.id) === Number(draggedTask.id)) {
+        continue
+      }
+
+      const { top, height } = taskElement.getBoundingClientRect()
+      const middlePoint = top + height / 2
+
+      taskElementData.push({
+        id: Number(taskElement.dataset.id),
+        position: middlePoint,
+      })
+    }
+
+    const patch = taskElementData
+      .sort((a, b) => {
+        return a.position - b.position
+      })
+      .map(({ id }, index) => {
+        return { id, position: index }
+      })
+
+    setTaskPatch(patch)
   }
 
   const onCategoryDragLeft = (_event: DragEvent, _category: number) => {

@@ -3,28 +3,30 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000" }),
-  tagTypes: [ "Task" ],
+  tagTypes: ["Task"],
   endpoints: (builder) => ({
     getTasksByWorkspaceId: builder.query({
       query: (id) => `/tasks/?workspace=${id}`,
-      providesTags: [ "Task" ],
+      providesTags: ["Task"],
     }),
 
     getWorkspaceById: builder.query({
       query: (id) => `/workspaces/${id}?_embed=tasks`,
       providesTags: (result, error, args) => {
-        
         if (result) {
-          return [ ...result.tasks.map(({ id }) => ({ type: "Task", id })), "Task" ]
-        }  
+          return [
+            ...result.tasks.map(({ id }) => ({ type: "Task", id })),
+            "Task",
+          ]
+        }
 
-        return [ "Workspace" ]
+        return ["Workspace"]
       },
     }),
 
     updateTask: builder.mutation({
       query: ({ id, ...patch }) => ({
-        url: `/tasks/${id}`,
+        url: `/tasks/${id || ""}`,
         method: "PATCH",
         body: patch,
       }),
@@ -33,4 +35,8 @@ export const api = createApi({
   }),
 })
 
-export const { useGetTasksByWorkspaceIdQuery, useUpdateTaskMutation, useGetWorkspaceByIdQuery } = api
+export const {
+  useGetTasksByWorkspaceIdQuery,
+  useUpdateTaskMutation,
+  useGetWorkspaceByIdQuery,
+} = api
