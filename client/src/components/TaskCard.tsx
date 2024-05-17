@@ -64,9 +64,6 @@ const TaskCard = ({
 
       <p className="text-md">{task.body}</p>
       <p>{task.date}</p>
-      <p>
-        {task.id}: p {task.position}
-      </p>
     </div>
   )
 }
