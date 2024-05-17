@@ -1,15 +1,11 @@
 import { DragEvent, useState } from "react"
 
 import TaskCategory from "@/components/TaskCategory"
-import taskData from "@/assets/taskData"
 import { useGetWorkspaceByIdQuery, useUpdateTaskMutation } from "@/services/api"
 
 const TaskCategoryContainer = () => {
   const { data, error, isLoading } = useGetWorkspaceByIdQuery(1)
   const [ updateTask, result ] = useUpdateTaskMutation()
-
-  console.log(result);
-  
 
   const [targetCategory, setTargetCategory] = useState<number | null>(null)
 
@@ -21,6 +17,10 @@ const TaskCategoryContainer = () => {
 
   const onTaskCardDragStart = (_event: DragEvent, _task: Task) => {
     /* console.log(_event) */
+  }
+
+  const onTaskCardDrag = (_event: DragEvent, _task: Task) => {
+
   }
 
   const onTaskCardDragEnd = (_event: DragEvent, task: Task) => {
@@ -40,18 +40,10 @@ const TaskCategoryContainer = () => {
     //console.log("category left", category);
   }
 
-  // Grahh
-  type CategoryData = {
-    name: string
-    tasks: Task[]
-    id: number
-    position: number
-  }
-
-  const categories: CategoryData[] = [...data.categories].map((category) => {
+  const categories: Category[] = [...data.categories].map((category) => {
     return {
       ...category,
-      tasks: data.tasks.filter((task) => task.categoryId === category.id),
+      tasks: data.tasks.filter((task: Task) => task.categoryId === category.id),
     }
   })
 
@@ -59,12 +51,14 @@ const TaskCategoryContainer = () => {
     <div className="flex grow gap-2 overflow-x-scroll py-10 pl-10 pr-5">
       {categories.map(({ name, id, tasks }) => (
         <TaskCategory
+          key={id}
           title={name}
           id={id}
           tasks={tasks}
           isTargetted={targetCategory === id}
           onTaskCardDragStart={onTaskCardDragStart}
           onTaskCardDragEnd={onTaskCardDragEnd}
+          onTaskCardDrag={onTaskCardDrag}
           onCategoryDragOver={onCategoryDragOver}
           onCategoryDragLeft={onCategoryDragLeft}
         />

@@ -23,9 +23,10 @@ const WorkspaceMembers = () => {
         style={{ paddingRight: offset }}
         className={`flex flex-row gap-[inherit] transition-all`}
       >
-        {Array.from({ length: 6 }).map(() => {
+        {Array.from({ length: 6 }).map((_, index) => {
           return (
             <div
+              key={index}
               style={{ marginRight: -offset }}
               className={`h-full transition-all [&>*]:outline [&>*]:outline-2 [&>*]:outline-white`}
             >

@@ -4,6 +4,7 @@ type TaskCardPropTypes = {
   task: Task
   onDragStart(event: DragEvent, task: Task): void
   onDragEnd(event: DragEvent, task: Task): void
+  onDrag(event: DragEvent, task: Task): void
 }
 
 const TagPill = ({ tag }: { tag: string }) => {
@@ -23,7 +24,7 @@ const TagPill = ({ tag }: { tag: string }) => {
   )
 }
 
-const TaskCard = ({ task, onDragStart, onDragEnd }: TaskCardPropTypes) => {
+const TaskCard = ({ task, onDragStart, onDragEnd, onDrag }: TaskCardPropTypes) => {
   const [isDragging, setDragging] = useState(false)
 
   const handleDragStart = (_event: DragEvent) => {
@@ -36,16 +37,21 @@ const TaskCard = ({ task, onDragStart, onDragEnd }: TaskCardPropTypes) => {
     onDragEnd(event, task)
   }
 
+  const handleDrag = (event: DragEvent) => {
+    onDrag(event, task)
+  }
+
   return (
     <div
       draggable={true}
-      onDrag={(event) => handleDragStart(event)}
-      onDragEnd={(event) => handleDragEnd(event)}
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
+      onDrag={handleDrag}
       className={`flex flex-col gap-2 rounded-xl border border-b-[3px] border-gray-200 bg-white p-4 transition-all ${isDragging ? "scale-95" : "hover:scale-105"} `}
     >
       <div className="gap flex flex-row flex-wrap gap-2 text-sm ">
-        {task.tags.map((tag) => (
-          <TagPill tag={tag} />
+        {task.tags.map((tag, index) => (
+          <TagPill key={index} tag={tag} />
         ))}
       </div>
 

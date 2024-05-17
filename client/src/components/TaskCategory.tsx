@@ -12,6 +12,7 @@ type TaskCategoryPropTypes = {
   onCategoryDragLeft(event: DragEvent, categoryId: number): void
   onTaskCardDragStart(event: DragEvent, task: Task): void
   onTaskCardDragEnd(event: DragEvent, task: Task): void
+  onTaskCardDrag(event: DragEvent, task: Task): void
 }
 
 const TaskCategory = ({
@@ -23,7 +24,12 @@ const TaskCategory = ({
   onCategoryDragLeft,
   onTaskCardDragStart,
   onTaskCardDragEnd,
+  onTaskCardDrag,
 }: TaskCategoryPropTypes) => {
+  const sortedTasks = tasks.sort((a, b) => {
+    return a.position - b.position
+  })
+
   return (
     <div
       className={`mb-auto flex min-w-[300px] max-w-[300px] flex-col gap-2 rounded-xl bg-gray-100/70 p-1 ${isTargetted ? "outline outline-2 outline-indigo-400" : ""}`}
@@ -39,11 +45,13 @@ const TaskCategory = ({
         </button>
       </div>
 
-      {tasks.map((task) => (
+      {sortedTasks.map((task) => (
         <TaskCard
+          key={task.id}
           task={task}
           onDragStart={onTaskCardDragStart}
           onDragEnd={onTaskCardDragEnd}
+          onDrag={onTaskCardDrag}
         />
       ))}
 
