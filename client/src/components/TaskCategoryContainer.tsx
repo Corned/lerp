@@ -48,7 +48,7 @@ const TaskCategoryContainer = () => {
   })
 
   return (
-    <div className="flex grow gap-2 overflow-x-scroll py-10 pl-10 pr-5">
+    <div className="flex grow gap-2 overflow-x-scroll py-5 pl-10 pr-5">
       {categories.map(({ name, id, tasks }) => (
         <TaskCategory
           key={id}
