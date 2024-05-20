@@ -25,50 +25,46 @@ import {
 import { Toggle } from "@/components/ui/toggle"
 
 type TaskDialogProps = {
-  TriggerElement: React.ReactNode,
-  isEditing: boolean
+  TriggerElement?: React.ReactNode
+  defaultCategory?: number
+  isEditing?: boolean
 }
 
-const DefaultTriggerElement =
-  <Button variant="outline">Open Dialog</Button>
+const DefaultTriggerElement = <Button variant="outline">Open Dialog</Button>
 
-const TaskDialog = ({ TriggerElement = DefaultTriggerElement, isEditing = false }: TaskDialogProps) => {
+const TaskDialog = ({
+  TriggerElement = DefaultTriggerElement,
+  isEditing = false,
+  defaultCategory,
+}: TaskDialogProps) => {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        { TriggerElement }
-      </DialogTrigger>
+      <DialogTrigger asChild>{TriggerElement}</DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>
-            {
-              isEditing
-              ? "Edit an Existing Task"
-              : "Create a New Task"
-            }
+            {isEditing ? "Edit an Existing Task" : "Create a New Task"}
           </DialogTitle>
         </DialogHeader>
         <DialogDescription>
-          {
-            isEditing
+          {isEditing
             ? "You are editing a task! :O"
-            : "Have fun creating a new task! Choose a category, set the tags and write down what you need to do!"
-          }
+            : "Have fun creating a new task! Choose a category, set the tags and write down what you need to do!"}
         </DialogDescription>
 
         <div className="flex flex-col gap-5">
           <div className="flex flex-col gap-2">
             <Label>Category</Label>
-            <Select>
+            <Select defaultValue={defaultCategory?.toString()}>
               <SelectTrigger>
-                <SelectValue placeholder="Category" />
+                <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="ready to start">Ready to Start</SelectItem>
-                <SelectItem value="in progress">In Progress</SelectItem>
-                <SelectItem value="ready to test">Ready to Test</SelectItem>
-                <SelectItem value="complete">Complete</SelectItem>
-                <SelectItem value="shipped">Shipped</SelectItem>
+                <SelectItem value="1">Ready to Start</SelectItem>
+                <SelectItem value="2">In Progress</SelectItem>
+                <SelectItem value="3">Ready to Test</SelectItem>
+                <SelectItem value="4">Complete</SelectItem>
+                <SelectItem value="5">Shipped</SelectItem>
               </SelectContent>
             </Select>
           </div>

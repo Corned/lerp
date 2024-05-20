@@ -4,6 +4,7 @@ import TaskCard from "@/components/TaskCard"
 import { Ellipsis, Plus } from "lucide-react"
 import { Card } from "./ui/card"
 import { Button } from "./ui/button"
+import TaskDialog from "./TaskDialog"
 
 type TaskCategoryPropTypes = {
   isTargetted: boolean
@@ -77,9 +78,18 @@ const TaskCategory = ({
         ))}
       </div>
 
-      <Button variant="outline" className="flex flex-row justify-center gap-2">
-        <Plus /> Create new task
-      </Button>
+      <TaskDialog
+        isEditing={false}
+        defaultCategory={id}
+        TriggerElement={
+          <Button
+            variant="outline"
+            className="flex flex-row justify-center gap-2"
+          >
+            Create new task
+          </Button>
+        }
+      />
     </Card>
   )
 }
