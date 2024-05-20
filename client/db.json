@@ -36,24 +36,24 @@
     {
       "id": 1,
       "workspaceId": 1,
-      "categoryId": 1,
+      "categoryId": 2,
       "tags": [
         "Frontend",
         "Backend"
       ],
       "body": "Implement feature that allows user to add and remove tags from tasks.",
-      "position": 0,
+      "position": 1,
       "date": "Nov 24"
     },
     {
       "id": 2,
       "workspaceId": 1,
-      "categoryId": 4,
+      "categoryId": 5,
       "tags": [
         "Backend"
       ],
       "body": "Set up JSON Server for easy testing.",
-      "position": 0,
+      "position": 1,
       "date": "Nov 24"
     },
     {
@@ -71,7 +71,7 @@
     {
       "id": 4,
       "workspaceId": 1,
-      "categoryId": 2,
+      "categoryId": 3,
       "tags": [
         "Frontend"
       ],
@@ -82,7 +82,7 @@
     {
       "id": 5,
       "workspaceId": 1,
-      "categoryId": 3,
+      "categoryId": 4,
       "tags": [
         "Frontend"
       ],
@@ -104,18 +104,18 @@
     {
       "id": 7,
       "workspaceId": 1,
-      "categoryId": 3,
+      "categoryId": 1,
       "tags": [
         "Frontend"
       ],
       "body": "Move tasks between category columns.",
-      "position": 1,
+      "position": 2,
       "date": "Nov 24"
     },
     {
       "id": 8,
       "workspaceId": 1,
-      "categoryId": 2,
+      "categoryId": -1,
       "tags": [
         "Frontend"
       ],
@@ -131,7 +131,7 @@
         "Frontend"
       ],
       "body": "Come up with a neat design.",
-      "position": 0,
+      "position": 2,
       "date": "Nov 24"
     },
     {
@@ -142,7 +142,7 @@
         "Frontend"
       ],
       "body": "Write down a bunch of test data.",
-      "position": 1,
+      "position": 0,
       "date": "Nov 24"
     }
   ],

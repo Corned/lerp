@@ -2,6 +2,7 @@ import React, { DragEvent, useState } from "react"
 
 import TaskCategory from "@/components/TaskCategory"
 import { useGetWorkspaceByIdQuery, useUpdateTaskMutation } from "@/services/api"
+import Modal from "./Modal"
 
 const TaskCategoryContainer = () => {
   const { data, error, isLoading } = useGetWorkspaceByIdQuery(1)
@@ -48,6 +49,9 @@ const TaskCategoryContainer = () => {
     setDraggedTask(null)
   }
 
+  // Needs refactoring, could happen in
+  // onTaskCardDragEnd if I end up not
+  // implementing previews
   const onCategoryDragOver = (
     event: DragEvent,
     taskContainerElementRef: React.RefObject<HTMLDivElement>,
@@ -102,6 +106,7 @@ const TaskCategoryContainer = () => {
         return { id, position: index }
       })
 
+    // TODO: MOVE TO DRAG END
     setTaskPatch(patch)
   }
 

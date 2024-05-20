@@ -52,7 +52,7 @@ const TaskCard = ({
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
       onDrag={handleDrag}
-      className={`flex flex-col gap-2 rounded-xl border border-b-[3px] border-gray-200 bg-white p-4 transition-all ${isDragging ? "scale-95" : "hover:scale-105"}`}
+      className={`flex flex-col gap-2 rounded-md border border-b-[1px] border-gray-200 bg-white p-4 transition-all ${isDragging ? "scale-95" : "hover:scale-105"}`}
       data-id={task.id}
       data-position={task.position}
     >

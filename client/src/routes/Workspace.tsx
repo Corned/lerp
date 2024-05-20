@@ -6,13 +6,15 @@ import WorkspaceMembers from "@/components/WorkspaceMembers"
 import TaskCategoryContainer from "@/components/TaskCategoryContainer"
 import { useGetWorkspaceByIdQuery } from "@/services/api"
 import { Pencil, SquarePlus } from "lucide-react"
+import TaskDialog from "@/components/TaskDialog"
+import { Button } from "@/components/ui/button"
 
 const Workspace = () => {
   const { isLoading, data, isError } = useGetWorkspaceByIdQuery(1)
 
   if (isLoading) {
     return (
-      <p className="w-full p-10 text-center font-rubik-mono text-3xl">
+      <p className="h-full w-full p-10 text-center font-rubik-mono text-3xl">
         Loading...
       </p>
     )
@@ -20,7 +22,7 @@ const Workspace = () => {
 
   if (isError) {
     return (
-      <p className="w-full p-10 text-center font-rubik-mono text-3xl">
+      <p className="h-full w-full p-10 text-center font-rubik-mono text-3xl">
         Something went wrong...
       </p>
     )
@@ -33,19 +35,22 @@ const Workspace = () => {
           <h1 className="flex flex-row items-center gap-6 text-4xl font-bold">
             {data?.name}
           </h1>
+
           <WorkspaceMembers />
         </Header>
 
         <div className="flex flex-row gap-4 pl-10 pt-6">
-          <button className="flex flex-row gap-2 rounded-md border border-gray-200 p-2 hover:bg-gray-100">
-            <SquarePlus /> new task
-          </button>
-          <button className="flex flex-row gap-2 rounded-md border border-gray-200 p-2 hover:bg-gray-100">
+          <TaskDialog
+            isEditing={false}
+            TriggerElement={
+              <Button className="flex flex-row gap-2 rounded-md">
+                <SquarePlus /> new task
+              </Button>
+            }
+          />
+          <Button disabled className="flex flex-row gap-2 rounded-md">
             <SquarePlus /> new column
-          </button>
-          <button className="flex flex-row gap-2 rounded-md border border-gray-200 p-2 hover:bg-gray-100">
-            <SquarePlus /> new task
-          </button>
+          </Button>
         </div>
 
         {/* Task Category Container */}

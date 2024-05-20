@@ -2,6 +2,8 @@ import React, { DragEvent, useRef } from "react"
 
 import TaskCard from "@/components/TaskCard"
 import { Ellipsis, Plus } from "lucide-react"
+import { Card } from "./ui/card"
+import { Button } from "./ui/button"
 
 type TaskCategoryPropTypes = {
   isTargetted: boolean
@@ -48,8 +50,8 @@ const TaskCategory = ({
   })
 
   return (
-    <div
-      className={`mb-auto flex min-w-[300px] max-w-[300px] flex-col gap-2 rounded-xl bg-gray-100/70 p-1 ${isTargetted ? "outline outline-2 outline-indigo-400" : ""}`}
+    <Card
+      className={`mb-auto flex min-w-[300px] max-w-[300px] flex-col gap-2 rounded-md bg-gray-100/70 p-1.5 ${isTargetted ? "outline outline-2 outline-indigo-400" : ""}`}
       onDragOver={(event) => onCategoryDragOver(event, taskContainerRef, id)}
       onDragLeave={(event) => onCategoryDragLeft(event, id)}
     >
@@ -62,7 +64,7 @@ const TaskCategory = ({
 
       <div
         ref={taskContainerRef}
-        className="task-container flex flex-col gap-2"
+        className="task-container flex flex-col gap-1.5"
       >
         {sortedTasks.map((task) => (
           <TaskCard
@@ -75,10 +77,10 @@ const TaskCategory = ({
         ))}
       </div>
 
-      <button className="flex flex-row justify-center gap-2 rounded-xl border border-b-[3px] border-gray-200 bg-white py-2 transition-all hover:scale-105">
+      <Button variant="outline" className="flex flex-row justify-center gap-2">
         <Plus /> Create new task
-      </button>
-    </div>
+      </Button>
+    </Card>
   )
 }
 
