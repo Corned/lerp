@@ -44,12 +44,12 @@ const Workspace = () => {
             isEditing={false}
             TriggerElement={
               <Button className="flex flex-row gap-2 rounded-md">
-                <SquarePlus /> new task
+                <SquarePlus /> New Task
               </Button>
             }
           />
           <Button disabled className="flex flex-row gap-2 rounded-md">
-            <SquarePlus /> new column
+            <SquarePlus /> New Category
           </Button>
         </div>
 
