@@ -137,10 +137,6 @@ const TaskCategoryContainer = () => {
           onCategoryDragLeft={onCategoryDragLeft}
         />
       ))}
-
-      <button className="min-w-[300px] max-w-[300px] rounded-xl border-4 border-dashed border-gray-100 bg-gray-100/20 text-2xl font-bold">
-        + New Column
-      </button>
     </div>
   )
 }
