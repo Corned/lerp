@@ -36,7 +36,7 @@
     {
       "id": 1,
       "workspaceId": 1,
-      "categoryId": 2,
+      "categoryId": 1,
       "tags": [
         "Frontend",
         "Backend"
@@ -65,7 +65,7 @@
         "Backend"
       ],
       "body": "Implement account creation and signing in.",
-      "position": 1,
+      "position": 0,
       "date": "Nov 24"
     },
     {
@@ -104,18 +104,18 @@
     {
       "id": 7,
       "workspaceId": 1,
-      "categoryId": 1,
+      "categoryId": 2,
       "tags": [
         "Frontend"
       ],
       "body": "Move tasks between category columns.",
-      "position": 2,
+      "position": 1,
       "date": "Nov 24"
     },
     {
       "id": 8,
       "workspaceId": 1,
-      "categoryId": -1,
+      "categoryId": 1,
       "tags": [
         "Frontend"
       ],
