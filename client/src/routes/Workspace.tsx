@@ -5,7 +5,7 @@ import Header from "@/components/WorkspaceHeader"
 import WorkspaceMembers from "@/components/WorkspaceMembers"
 import TaskCategoryContainer from "@/components/TaskCategoryContainer"
 import { useGetWorkspaceByIdQuery } from "@/services/api"
-import { Pencil, SquarePlus } from "lucide-react"
+import { BetweenVerticalStartIcon, Pencil, PencilRulerIcon, SettingsIcon, SquarePenIcon, SquarePlus } from "lucide-react"
 import TaskDialog from "@/components/TaskDialog"
 import { Button } from "@/components/ui/button"
 
@@ -44,12 +44,20 @@ const Workspace = () => {
             isEditing={false}
             TriggerElement={
               <Button className="flex flex-row gap-2 rounded-md">
-                <SquarePlus /> New Task
+                <SquarePenIcon /> New Task
               </Button>
             }
           />
           <Button disabled className="flex flex-row gap-2 rounded-md">
-            <SquarePlus /> New Category
+            <BetweenVerticalStartIcon /> New Category
+          </Button>
+
+          <Button disabled className="flex flex-row gap-2 rounded-md">
+            <PencilRulerIcon /> Manage Tags
+          </Button>
+
+          <Button disabled className="flex flex-row gap-2 rounded-md">
+            <SettingsIcon /> Edit Workspace
           </Button>
         </div>
 
