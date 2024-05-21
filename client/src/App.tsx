@@ -1,9 +1,17 @@
-import { ChevronDown, Home } from "lucide-react"
 import { Outlet } from "react-router-dom"
 
 import ProfilePicture from "@/components/ProfilePicture"
 import { Button } from "./components/ui/button"
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuList, NavigationMenuTrigger } from "./components/ui/navigation-menu"
+import { ScrollArea } from "./components/ui/scroll-area"
+
+const WorkspacePreview = () => {
+  return (
+    <div className="">
+      <p className="text">Lerp Development</p>
+    </div>
+  )
+}
 
 const App = () => {
   return (
@@ -18,14 +26,13 @@ const App = () => {
             <NavigationMenuItem>
               <NavigationMenuTrigger className="text-xl">My Workspaces</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="p-5 flex flex-col gap-4">
-                  <div className="">
-                    <p className="text">Lerp Development</p>
+                <ScrollArea>
+                  <div className="p-5 flex flex-col gap-4 w-[400px]">
+                    <WorkspacePreview />
+                    <WorkspacePreview />
+                    <WorkspacePreview />
                   </div>
-                  <div className="">
-                    <p className="text">Another Workspace</p>
-                  </div>
-                </div>
+                </ScrollArea>
               </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
