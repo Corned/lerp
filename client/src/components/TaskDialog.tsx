@@ -18,7 +18,11 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Toggle } from "@/components/ui/toggle"
-import ProfilePicture from "./ProfilePicture"
+import { useCreateTaskMutation } from "@/services/api"
+import { useForm } from "react-hook-form"
+import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group"
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
+import { z } from "zod"
 
 type TaskDialogProps = {
   TriggerElement?: React.ReactNode
@@ -28,11 +32,23 @@ type TaskDialogProps = {
 
 const DefaultTriggerElement = <Button variant="outline">Open Dialog</Button>
 
+const formSchema = z.object({})
+
 const TaskDialog = ({
   TriggerElement = DefaultTriggerElement,
   isEditing = false,
   defaultCategory,
 }: TaskDialogProps) => {
+  const form = useForm({
+
+  })
+
+  const [createTask, result] = useCreateTaskMutation()
+
+  const onSubmit = (values) => {
+    console.log("SUBMIT :O", values)
+  }
+
   return (
     <Dialog>
       <DialogTrigger asChild>{TriggerElement}</DialogTrigger>
@@ -48,63 +64,91 @@ const TaskDialog = ({
             : "Have fun creating a new task! Choose a category, set the tags and write down what you need to do!"}
         </DialogDescription>
 
-        <div className="flex flex-col gap-5">
-          <div className="flex flex-col gap-2">
-            <Label>Choose a Category</Label>
-            <Select defaultValue={defaultCategory?.toString()}>
-              <SelectTrigger>
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="1">Ready to Start</SelectItem>
-                <SelectItem value="2">In Progress</SelectItem>
-                <SelectItem value="3">Ready to Test</SelectItem>
-                <SelectItem value="4">Complete</SelectItem>
-                <SelectItem value="5">Shipped</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <Label>Select tags</Label>
-            <div className="flex flex-row flex-wrap gap-2">
-              <Toggle value="frontend">Frontend</Toggle>
-              <Toggle value="backend">Backend</Toggle>
-              <Toggle value="uiux">UI/UX</Toggle>
-              <Toggle value="testing">Testing</Toggle>
-              <Toggle value="art">Art</Toggle>
-              <Toggle value="other">Other</Toggle>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <Label>Describe the Task</Label>
-            <Textarea
-              className="resize-none"
-              placeholder="Set up state management using Redux Toolkit."
+        <Form {...form}>
+          <form
+            className="flex flex-col gap-5"
+            onSubmit={form.handleSubmit(onSubmit)}
+          >
+            <FormField
+              control={form.control}
+              name="categoryId"
+              render={({ field }) => (
+                <FormItem className="flex flex-col gap-2">
+                  <FormLabel>Choose a Category</FormLabel>
+                  <FormControl>
+                    <Select
+                      defaultValue={defaultCategory?.toString()}
+                      onValueChange={field.onChange}
+                      {...field}
+                    >
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="1">Ready to Start</SelectItem>
+                        <SelectItem value="2">In Progress</SelectItem>
+                        <SelectItem value="3">Ready to Test</SelectItem>
+                        <SelectItem value="4">Complete</SelectItem>
+                        <SelectItem value="5">Shipped</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+                  <FormDescription>
+                    This is the category id of the Task.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-          </div>
 
-{/*           <div className="flex flex-col gap-3">
-            <Label>Who is going to work on this?</Label>
-            <div className="grid grid-cols-7 gap-2">
-              <ProfilePicture />
-              <ProfilePicture />
-              <ProfilePicture />
-              <ProfilePicture />
-              <ProfilePicture />
-            </div>
-          </div> */}
-        </div>
+            <FormField
+              control={form.control}
+              name="tags"
+              render={({ field }) => (
+                <FormItem className="flex flex-col gap-2">
+                  <FormLabel>Select tags</FormLabel>
+                  <ToggleGroup
+                    type="multiple"
+                    className="flex flex-row flex-wrap gap-2"
+                    onValueChange={field.onChange}
+                    { ...field }
+                  >
+                    <ToggleGroupItem value="frontend">Frontend</ToggleGroupItem>
+                    <ToggleGroupItem value="backend">Backend</ToggleGroupItem>
+                    <ToggleGroupItem value="uiux">UI/UX</ToggleGroupItem>
+                    <ToggleGroupItem value="testing">Testing</ToggleGroupItem>
+                    <ToggleGroupItem value="art">Art</ToggleGroupItem>
+                    <ToggleGroupItem value="other">Other</ToggleGroupItem>
+                  </ToggleGroup>
+                </FormItem>
+              )}
+            />
 
-        <DialogFooter>
-          <Button variant="outline">Cancel</Button>
-          {
-            isEditing
-            ? <Button>Save Changes</Button>
-            : <Button>Create</Button>
-          }
-        </DialogFooter>
+            <FormField
+              control={form.control}
+              name="body"
+              render={({ field }) => (
+                <FormItem className="flex flex-col gap-2">
+                  <FormLabel>Describe the Task</FormLabel>
+                  <Textarea
+                    className="resize-none"
+                    placeholder="Set up state management using Redux Toolkit."
+                    { ...field }
+                  />
+                </FormItem>
+                )}
+            />
+
+            <DialogFooter>
+              <Button variant="outline">Cancel</Button>
+              {isEditing ? (
+                <Button type="submit">Save Changes</Button>
+              ) : (
+                <Button type="submit">Create</Button>
+              )}
+            </DialogFooter>
+          </form>
+        </Form>
       </DialogContent>
     </Dialog>
   )

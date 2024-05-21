@@ -16,12 +16,22 @@ export const api = createApi({
         if (result) {
           return [
             ...result.tasks.map(({ id }) => ({ type: "Task", id })),
-            "Task",
+            { type: "Workspace", id: "WORKSPACE" },
+            { type: "Task", id: "LIST" },
           ]
         }
 
         return ["Workspace"]
       },
+    }),
+
+    createTask: builder.mutation({
+      query: ({ payload }) => ({
+        url: `/tasks`,
+        method: "POST",
+        body: payload,
+      }),
+      invalidatesTags: [{ type: "Task", id: "LIST" }],
     }),
 
     updateTask: builder.mutation({
@@ -38,5 +48,6 @@ export const api = createApi({
 export const {
   useGetTasksByWorkspaceIdQuery,
   useUpdateTaskMutation,
+  useCreateTaskMutation,
   useGetWorkspaceByIdQuery,
 } = api

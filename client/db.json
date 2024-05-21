@@ -37,10 +37,7 @@
       "id": 1,
       "workspaceId": 1,
       "categoryId": 1,
-      "tags": [
-        "Frontend",
-        "Backend"
-      ],
+      "tags": ["Frontend", "Backend"],
       "body": "Implement feature that allows user to add and remove tags from tasks.",
       "position": 0,
       "date": "Nov 24"
@@ -49,9 +46,7 @@
       "id": 2,
       "workspaceId": 1,
       "categoryId": 5,
-      "tags": [
-        "Backend"
-      ],
+      "tags": ["Backend"],
       "body": "Set up JSON Server for easy testing.",
       "position": 1,
       "date": "Nov 24"
@@ -60,10 +55,7 @@
       "id": 3,
       "workspaceId": 1,
       "categoryId": 2,
-      "tags": [
-        "Frontend",
-        "Backend"
-      ],
+      "tags": ["Frontend", "Backend"],
       "body": "Implement account creation and signing in.",
       "position": 0,
       "date": "Nov 24"
@@ -72,9 +64,7 @@
       "id": 4,
       "workspaceId": 1,
       "categoryId": 3,
-      "tags": [
-        "Frontend"
-      ],
+      "tags": ["Frontend"],
       "body": "Set up state management using Redux Toolkit",
       "position": 1,
       "date": "Nov 24"
@@ -83,9 +73,7 @@
       "id": 5,
       "workspaceId": 1,
       "categoryId": 4,
-      "tags": [
-        "Frontend"
-      ],
+      "tags": ["Frontend"],
       "body": "Create a wonderful front page for Lerp.",
       "position": 0,
       "date": "Nov 24"
@@ -94,9 +82,7 @@
       "id": 6,
       "workspaceId": 1,
       "categoryId": 1,
-      "tags": [
-        "Frontend"
-      ],
+      "tags": ["Frontend"],
       "body": "Dynamically update task progress to match used tags.",
       "position": 1,
       "date": "Nov 24"
@@ -105,9 +91,7 @@
       "id": 7,
       "workspaceId": 1,
       "categoryId": 2,
-      "tags": [
-        "Frontend"
-      ],
+      "tags": ["Frontend"],
       "body": "Move tasks between category columns.",
       "position": 1,
       "date": "Nov 24"
@@ -116,9 +100,7 @@
       "id": 8,
       "workspaceId": 1,
       "categoryId": 1,
-      "tags": [
-        "Frontend"
-      ],
+      "tags": ["Frontend"],
       "body": "I don't know man, I just need more test data.",
       "position": 2,
       "date": "Nov 24"
@@ -127,9 +109,7 @@
       "id": 9,
       "workspaceId": 1,
       "categoryId": 5,
-      "tags": [
-        "Frontend"
-      ],
+      "tags": ["Frontend"],
       "body": "Come up with a neat design.",
       "position": 2,
       "date": "Nov 24"
@@ -138,9 +118,7 @@
       "id": 10,
       "workspaceId": 1,
       "categoryId": 5,
-      "tags": [
-        "Frontend"
-      ],
+      "tags": ["Frontend"],
       "body": "Write down a bunch of test data.",
       "position": 0,
       "date": "Nov 24"
