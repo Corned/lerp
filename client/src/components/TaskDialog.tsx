@@ -21,7 +21,15 @@ import { Toggle } from "@/components/ui/toggle"
 import { useCreateTaskMutation } from "@/services/api"
 import { useForm } from "react-hook-form"
 import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group"
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "./ui/form"
 import { z } from "zod"
 
 type TaskDialogProps = {
@@ -54,8 +62,7 @@ const TaskDialog = ({
       position: 99999,
     }
 
-    console.log(taskObject, values);
-    
+    console.log(taskObject, values)
 
     createTask({ payload: taskObject })
   }
@@ -122,7 +129,7 @@ const TaskDialog = ({
                     type="multiple"
                     className="flex flex-row flex-wrap gap-2"
                     onValueChange={field.onChange}
-                    { ...field }
+                    {...field}
                   >
                     <ToggleGroupItem value="Frontend">Frontend</ToggleGroupItem>
                     <ToggleGroupItem value="Backend">Backend</ToggleGroupItem>
@@ -144,10 +151,10 @@ const TaskDialog = ({
                   <Textarea
                     className="resize-none"
                     placeholder="Set up state management using Redux Toolkit."
-                    { ...field }
+                    {...field}
                   />
                 </FormItem>
-                )}
+              )}
             />
 
             <DialogFooter>

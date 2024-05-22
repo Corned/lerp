@@ -11,10 +11,10 @@ const Header = () => {
         <p className="font-rubik-mono text-7xl">Manager</p>
       </div>
 
-      <div className="z-[-1] absolute left-0 top-0 h-full w-full bg-gradient-to-r from-indigo-400 from-45% to-indigo-400/10 "></div>
+      <div className="absolute left-0 top-0 z-[-1] h-full w-full bg-gradient-to-r from-indigo-400 from-45% to-indigo-400/10 "></div>
 
       <img
-        className="z-[-2] max-w-1/2 absolute right-0 top-0 min-h-full w-3/5 object-cover"
+        className="max-w-1/2 absolute right-0 top-0 z-[-2] min-h-full w-3/5 object-cover"
         src={exampleImage}
       />
     </header>
@@ -38,7 +38,7 @@ const Index = () => {
 
       <blockquote
         cite="https://github.com/corned/"
-        className="my-10 flex flex-col items-center gap-1"
+        className="mb-5 mt-10 flex flex-col items-center gap-1"
       >
         <p className="font-rubik text-2xl font-bold">
           Wowwee! Lerp has improved my productivity by <i>at least</i> 100%!
@@ -47,6 +47,15 @@ const Index = () => {
           —Me, <cite>Lead Developer of Lerp</cite>
         </footer>
       </blockquote>
+
+      <div className="flex flex-row justify-center gap-4">
+        <Button variant="outline" className="px-8 py-6 text-2xl">
+          Sign up!
+        </Button>
+        <Button variant="outline" className="px-8 py-6 text-2xl">
+          Log in
+        </Button>
+      </div>
 
       <Features />
 

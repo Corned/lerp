@@ -64,7 +64,7 @@ const TaskCard = ({
       </div>
 
       <p className="text-md">{task.body}</p>
-      <Moment date={task.date} format="DD/MM/yyyy"/>
+      <Moment date={task.date} format="DD/MM/yyyy" />
     </div>
   )
 }
