@@ -1,4 +1,5 @@
 import { DragEvent, useState } from "react"
+import Moment from "react-moment"
 
 type TaskCardPropTypes = {
   task: Task
@@ -63,7 +64,7 @@ const TaskCard = ({
       </div>
 
       <p className="text-md">{task.body}</p>
-      <p>{task.date}</p>
+      <Moment date={task.date} format="DD/MM/yyyy"/>
     </div>
   )
 }
