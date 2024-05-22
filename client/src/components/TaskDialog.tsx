@@ -39,14 +39,25 @@ const TaskDialog = ({
   isEditing = false,
   defaultCategory,
 }: TaskDialogProps) => {
-  const form = useForm({
-
-  })
+  const form = useForm({})
 
   const [createTask, result] = useCreateTaskMutation()
 
   const onSubmit = (values) => {
     console.log("SUBMIT :O", values)
+
+    const taskObject: Task = {
+      ...values,
+      categoryId: Number(values.categoryId),
+      workspaceId: 1,
+      date: new Date(),
+      position: 99999,
+    }
+
+    console.log(taskObject, values);
+    
+
+    createTask({ payload: taskObject })
   }
 
   return (
@@ -113,12 +124,12 @@ const TaskDialog = ({
                     onValueChange={field.onChange}
                     { ...field }
                   >
-                    <ToggleGroupItem value="frontend">Frontend</ToggleGroupItem>
-                    <ToggleGroupItem value="backend">Backend</ToggleGroupItem>
-                    <ToggleGroupItem value="uiux">UI/UX</ToggleGroupItem>
-                    <ToggleGroupItem value="testing">Testing</ToggleGroupItem>
-                    <ToggleGroupItem value="art">Art</ToggleGroupItem>
-                    <ToggleGroupItem value="other">Other</ToggleGroupItem>
+                    <ToggleGroupItem value="Frontend">Frontend</ToggleGroupItem>
+                    <ToggleGroupItem value="Backend">Backend</ToggleGroupItem>
+                    <ToggleGroupItem value="UIUX">UI/UX</ToggleGroupItem>
+                    <ToggleGroupItem value="Testing">Testing</ToggleGroupItem>
+                    <ToggleGroupItem value="Art">Art</ToggleGroupItem>
+                    <ToggleGroupItem value="Other">Other</ToggleGroupItem>
                   </ToggleGroup>
                 </FormItem>
               )}
