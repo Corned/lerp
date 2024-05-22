@@ -11,6 +11,7 @@ import App from "@/App.tsx"
 
 import "@/index.css"
 import "@/globals.css"
+import Login from "./routes/Login"
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ])
 
