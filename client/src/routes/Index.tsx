@@ -1,17 +1,20 @@
 import { Github } from "lucide-react"
 import exampleImage from "@/assets/example.png"
+import { Button } from "@/components/ui/button"
 
 const Header = () => {
   return (
-    <header className="relative flex select-none flex-col items-start gap-4 overflow-hidden rounded-xl bg-indigo-400 p-20 text-white">
-      <p className="z-20 font-rubik-mono text-7xl">Lerp</p>
-      <p className="z-20 font-rubik-mono text-7xl">Task</p>
-      <p className="z-20 font-rubik-mono text-7xl">Manager</p>
+    <header className="relative flex select-none flex-row justify-between gap-4 overflow-hidden rounded-xl p-20 text-white">
+      <div className="flex flex-col gap-4">
+        <p className="font-rubik-mono text-7xl">Lerp</p>
+        <p className="font-rubik-mono text-7xl">Task</p>
+        <p className="font-rubik-mono text-7xl">Manager</p>
+      </div>
 
-      <div className="absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-r from-indigo-400 from-45% to-indigo-400/10 "></div>
+      <div className="z-[-1] absolute left-0 top-0 h-full w-full bg-gradient-to-r from-indigo-400 from-45% to-indigo-400/10 "></div>
 
       <img
-        className="max-w-1/2 absolute right-0 top-0 min-h-full w-3/5 object-cover"
+        className="z-[-2] max-w-1/2 absolute right-0 top-0 min-h-full w-3/5 object-cover"
         src={exampleImage}
       />
     </header>
