@@ -88,7 +88,7 @@ const TaskDialog = ({
                   <FormLabel>Choose a Category</FormLabel>
                   <FormControl>
                     <Select
-                      defaultValue={defaultCategory?.toString()}
+                      defaultValue={"1"}
                       onValueChange={field.onChange}
                       {...field}
                     >
