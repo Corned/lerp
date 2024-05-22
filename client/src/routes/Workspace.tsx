@@ -7,17 +7,16 @@ import TaskCategoryContainer from "@/components/TaskCategoryContainer"
 import { useGetWorkspaceByIdQuery } from "@/services/api"
 import {
   BetweenVerticalStartIcon,
-  Pencil,
   PencilRulerIcon,
   SettingsIcon,
   SquarePenIcon,
-  SquarePlus,
 } from "lucide-react"
 import TaskDialog from "@/components/TaskDialog"
 import { Button } from "@/components/ui/button"
 
 const Workspace = () => {
-  const { isLoading, data, isError } = useGetWorkspaceByIdQuery(1)
+  const workspaceId = 1
+  const { isLoading, data, isError } = useGetWorkspaceByIdQuery(workspaceId)
 
   if (isLoading) {
     return (
@@ -35,8 +34,9 @@ const Workspace = () => {
     )
   }
 
+  // grid grid-cols-[1fr_290px]
   return (
-    <div className="grid grid-cols-[1fr_290px] overflow-hidden">
+    <div className="overflow-hidden">
       <div className="flex flex-col overflow-x-hidden overflow-y-scroll">
         <Header>
           <h1 className="flex flex-row items-center gap-6 text-4xl font-bold">
@@ -72,7 +72,7 @@ const Workspace = () => {
         <TaskCategoryContainer />
       </div>
 
-      <div className="shadow-xs flex flex-col gap-4 border-l border-gray-200 bg-white px-5 py-10">
+      {/* <div className="shadow-xs flex flex-col gap-4 border-l border-gray-200 bg-white px-5 py-10">
         <h1 className="text-2xl font-bold">Task Progress</h1>
 
         <div className="flex flex-col gap-4">
@@ -155,7 +155,7 @@ const Workspace = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
