@@ -24,11 +24,10 @@ app.get("/", (req, res) => {
   res.send("Hello, TypeScript with Express!")
 })
 
-mongoose.connect(process.env.DB_URL || "")
-  .then(() => {
-    console.log("Connected to mongodb!");
+mongoose.connect(process.env.DB_URL || "").then(() => {
+  console.log("Connected to mongodb!")
 
-    app.listen(process.env.PORT, () => {
-      console.log(`Server is running on http://localhost:${process.env.PORT}`)
-    })
+  app.listen(process.env.PORT, () => {
+    console.log(`Server is running on http://localhost:${process.env.PORT}`)
   })
+})
