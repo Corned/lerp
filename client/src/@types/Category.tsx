@@ -1,4 +1,4 @@
-type Category = {
+interface Category {
   name: string
   tasks: Task[]
   id: number

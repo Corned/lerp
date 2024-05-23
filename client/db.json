@@ -154,7 +154,7 @@
       "body": "This is a test task. Please ignore.",
       "workspaceId": 1,
       "date": "2024-05-22T06:13:43.805Z",
-      "position": 99999,
+      "position": 3,
       "id": 16
     },
     {
@@ -165,8 +165,58 @@
       "body": "Fix tag capitalization",
       "workspaceId": 1,
       "date": "2024-05-22T06:14:59.739Z",
-      "position": 99999,
+      "position": 2,
       "id": 17
+    },
+    {
+      "categoryId": 2,
+      "tags": [
+        "Frontend",
+        "Backend"
+      ],
+      "body": "Woah!",
+      "workspaceId": 1,
+      "date": "2024-05-22T06:33:08.443Z",
+      "position": 2,
+      "id": 20
+    },
+    {
+      "categoryId": 1,
+      "tags": [
+        "Frontend",
+        "Backend"
+      ],
+      "body": "Woah!",
+      "workspaceId": 1,
+      "date": "2024-05-22T06:33:10.629Z",
+      "position": 4,
+      "id": 21
+    },
+    {
+      "categoryId": null,
+      "workspaceId": 1,
+      "date": "2024-05-23T06:56:55.800Z",
+      "position": 99999,
+      "id": 22
+    },
+    {
+      "categoryId": null,
+      "body": "dsaadsasd",
+      "workspaceId": 1,
+      "date": "2024-05-23T06:57:03.054Z",
+      "position": 99999,
+      "id": 23
+    },
+    {
+      "categoryId": 3,
+      "tags": [
+        "Backend"
+      ],
+      "body": "dsaadsasd",
+      "workspaceId": 1,
+      "date": "2024-05-23T06:57:15.077Z",
+      "position": 99999,
+      "id": 24
     }
   ],
   "tags": [
