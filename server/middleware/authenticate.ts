@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken"
 import { RequestHandler } from "express"
 
-const isAuthenticated: RequestHandler = (req, res, next) => {
+const authenticate: RequestHandler = (req, res, next) => {
   const { auth } = req.cookies
 
   // If user doesn't have auth cookie,
@@ -27,4 +27,4 @@ const isAuthenticated: RequestHandler = (req, res, next) => {
   }
 }
 
-export default isAuthenticated
+export default authenticate
