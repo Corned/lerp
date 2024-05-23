@@ -16,6 +16,6 @@ const tagSchema: Schema<ITag> = new Schema<ITag>(
   }
 )
 
-const User: Model<ITag> = mongoose.model<ITag>("Tag", tagSchema)
+const Tag: Model<ITag> = mongoose.model<ITag>("Tag", tagSchema)
 
-export { ITag, User }
+export { ITag, Tag }
