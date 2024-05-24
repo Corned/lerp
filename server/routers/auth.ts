@@ -1,6 +1,6 @@
 import express, { Request, Response, NextFunction } from "express"
 import jwt from "jsonwebtoken"
-import bcrypt from "bcryptjs"
+import argon2 from "argon2"
 import { User, IUser } from "../models/User"
 
 const router = express.Router()
@@ -56,9 +56,10 @@ router.post("/login", async (req: Request, res: Response) => {
       return res.status(401).json({ error: "Invalid username or password" })
     }
 
-    const isPasswordCorrect: boolean = await bcrypt.compare(
-      password,
-      user.password
+    const passwordHash = user.password
+    const isPasswordCorrect: boolean = await argon2.verify(
+      passwordHash,
+      password
     )
 
     if (!isPasswordCorrect) {
@@ -67,7 +68,7 @@ router.post("/login", async (req: Request, res: Response) => {
 
     const token = jwt.sign(
       { username: user.name, id: user._id },
-      process.env.SECRET_KEY!,
+      process.env.JWT_SECRET!,
       { expiresIn: "1h" }
     )
 
