@@ -2,10 +2,9 @@ import express, { Request, Response, NextFunction } from "express"
 import jwt from "jsonwebtoken"
 import argon2 from "argon2"
 import { User, IUser } from "../models/User"
+import { Nullable } from "../types"
 
 const router = express.Router()
-
-type Nullable<T> = T | null
 
 interface ICredentials {
   username: string
@@ -21,17 +20,16 @@ router.post("/auth", async (req: Request, res: Response) => {
   }
 
   try {
-    const user: Nullable<IUser> = await User.findById(userId)
+    const user: Nullable<IUser> =
+      await User.findById(userId).select("-password")
+
     if (!user) {
       return res
         .status(500)
         .json({ error: "You're authenticated, but user doesn't exist" })
     }
 
-    const userObject = user.toObject()
-    delete userObject.password
-
-    res.status(200).json({ user: userObject })
+    res.status(200).json({ user })
   } catch (error) {
     res.status(500).json({ error: "Something went wrong..." })
   }

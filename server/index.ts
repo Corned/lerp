@@ -24,10 +24,14 @@ app.get("/", (req, res) => {
   res.send("Hello, TypeScript with Express!")
 })
 
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.fe5hrw0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`).then(() => {
-  console.log("Connected to mongodb!")
+mongoose
+  .connect(
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.fe5hrw0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+  )
+  .then(() => {
+    console.log("Connected to mongodb!")
 
-  app.listen(process.env.PORT, () => {
-    console.log(`Server is running on http://localhost:${process.env.PORT}`)
+    app.listen(process.env.PORT, () => {
+      console.log(`Server is running on http://localhost:${process.env.PORT}`)
+    })
   })
-})

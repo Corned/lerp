@@ -1,4 +1,3 @@
-import { IUser } from "./IUser"
-import { IWorkspace } from "./IWorkspace"
+type Nullable<T> = T | null
 
-export { IUser, IWorkspace }
+export { Nullable }

@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express"
 import requireAuth from "../middleware/requireAuth"
-import { Workspace } from "../models/Workspace"
+import { IWorkspace, Workspace } from "../models/Workspace"
 import { User } from "../models/User"
 
 const router = Router()
@@ -9,18 +9,22 @@ router.get("/", requireAuth, async (req: Request, res: Response) => {
   const userId: string = res.locals.userId
 
   try {
-    const workspaces = await Workspace.find({ owner: userId })
+    const workspaces: IWorkspace[] = await Workspace.find({ owner: userId })
     res.status(200).json(workspaces)
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch workspaces" })
   }
 })
 
+router.get("/:id", requireAuth, async (req: Request, res: Response) => {
+  res.status(200).send("OK!")
+})
+
 router.post("/", requireAuth, async (req: Request, res: Response) => {
   const userId: string = res.locals.userId
 
   try {
-    const newWorkspace = new Workspace({
+    const newWorkspace: IWorkspace = new Workspace({
       name: "My Workspace",
       owner: userId,
       members: [userId],
