@@ -54,8 +54,7 @@ const TaskDialog = ({
 
   const [updateTask] = useUpdateTaskMutation()
 
-  const onSubmit = (values) => {   
-
+  const onSubmit = (values: Partial<Task>) => {   
     const taskObject: Task = {
       ...task,
       ...values,
