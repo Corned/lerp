@@ -1,6 +1,8 @@
 import { PencilIcon } from "lucide-react"
 import { DragEvent, useState } from "react"
 import Moment from "react-moment"
+import TaskDialog from "./TaskDialog"
+import { Button } from "./ui/button"
 
 type TaskCardPropTypes = {
   task: Task
@@ -10,7 +12,7 @@ type TaskCardPropTypes = {
 }
 
 const TagPill = ({ tag }: { tag: string }) => {
-  let color = "green"
+  let color = "gree"
   if (tag === "Frontend") {
     color = "blue"
   } else if (tag === "Backend") {
@@ -47,8 +49,8 @@ const TaskCard = ({
 
   const handleDrag = (event: DragEvent) => {
     onDrag(event, task)
-  }
-
+  } 
+  
   return (
     <div
       draggable={true}
@@ -61,11 +63,15 @@ const TaskCard = ({
       onMouseEnter={() => setShowEditButton(true)}
       onMouseLeave={() => setShowEditButton(false)}
     >
-      {showEditButton && (
-        <button className="absolute right-1 top-1 z-10 h-8 w-8 rounded-full p-2 transition-all hover:bg-gray-100">
-          <PencilIcon className="h-full w-full" />
-        </button>
-      )}
+
+      <TaskDialog
+        task={task}
+        TriggerElement={
+          <button className={`absolute right-1 top-1 z-10 h-8 w-8 rounded-full p-2 transition-all hover:bg-gray-100 ${showEditButton ? "" : "hidden"}`}>
+            <PencilIcon className="h-full w-full" />
+          </button>
+        }
+      />
 
       {
         task.tags.length > 0 && (

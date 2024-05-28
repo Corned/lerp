@@ -47,14 +47,6 @@ const Workspace = () => {
         </Header>
 
         <div className="flex flex-row gap-4 pl-10 pt-6">
-          <TaskDialog
-            isEditing={false}
-            TriggerElement={
-              <Button className="flex flex-row gap-2 rounded-md">
-                <SquarePenIcon /> New Task
-              </Button>
-            }
-          />
           <Button disabled className="flex flex-row gap-2 rounded-md">
             <BetweenVerticalStartIcon /> New Category
           </Button>

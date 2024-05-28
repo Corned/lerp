@@ -1,4 +1,3 @@
-import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import {
   Dialog,
@@ -17,25 +16,23 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Toggle } from "@/components/ui/toggle"
-import { useCreateTaskMutation } from "@/services/api"
+import { useUpdateTaskMutation } from "@/services/api"
 import { useForm } from "react-hook-form"
 import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "./ui/form"
 import { z } from "zod"
+import { PenLineIcon } from "lucide-react"
 
 type TaskDialogProps = {
   TriggerElement?: React.ReactNode
-  defaultCategory?: number
-  isEditing?: boolean
+  task: Task
 }
 
 const DefaultTriggerElement = <Button variant="outline">Open Dialog</Button>
@@ -44,27 +41,28 @@ const formSchema = z.object({})
 
 const TaskDialog = ({
   TriggerElement = DefaultTriggerElement,
-  isEditing = false,
-  defaultCategory,
+  task,
 }: TaskDialogProps) => {
-  const form = useForm({})
+ 
+  const form = useForm({
+    defaultValues: {
+      categoryId: task.categoryId.toString(),
+      tags: task.tags,
+      body: task.body,
+    }
+  })
 
-  const [createTask, result] = useCreateTaskMutation()
+  const [updateTask] = useUpdateTaskMutation()
 
-  const onSubmit = (values) => {
-    console.log("SUBMIT :O", values)
+  const onSubmit = (values) => {   
 
     const taskObject: Task = {
+      ...task,
       ...values,
       categoryId: Number(values.categoryId),
-      workspaceId: 1,
-      date: new Date(),
-      position: 99999,
     }
 
-    console.log(taskObject, values)
-
-    createTask({ payload: taskObject })
+    updateTask(taskObject)
   }
 
   return (
@@ -72,14 +70,13 @@ const TaskDialog = ({
       <DialogTrigger asChild>{TriggerElement}</DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>
-            {isEditing ? "Edit an Existing Task" : "Create a New Task"}
+          <DialogTitle className="flex flex-row items-center gap-2">
+            <PenLineIcon />  
+            <span>Edit an Existing Task </span>
           </DialogTitle>
         </DialogHeader>
         <DialogDescription>
-          {isEditing
-            ? "You are editing a task! :O"
-            : "Have fun creating a new task! Choose a category, set the tags and write down what you need to do!"}
+          Here you can make changes to the task's properties! 🤯
         </DialogDescription>
 
         <Form {...form}>
@@ -95,9 +92,9 @@ const TaskDialog = ({
                   <FormLabel>Choose a Category</FormLabel>
                   <FormControl>
                     <Select
-                      defaultValue={"1"}
                       onValueChange={field.onChange}
                       {...field}
+                      defaultValue={task.categoryId.toString()}
                     >
                       <SelectTrigger>
                         <SelectValue />
@@ -111,9 +108,6 @@ const TaskDialog = ({
                       </SelectContent>
                     </Select>
                   </FormControl>
-                  <FormDescription>
-                    This is the category id of the Task.
-                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -159,11 +153,7 @@ const TaskDialog = ({
 
             <DialogFooter>
               <Button variant="outline">Cancel</Button>
-              {isEditing ? (
-                <Button type="submit">Save Changes</Button>
-              ) : (
-                <Button type="submit">Create</Button>
-              )}
+              <Button type="submit">Save Changes</Button>
             </DialogFooter>
           </form>
         </Form>
