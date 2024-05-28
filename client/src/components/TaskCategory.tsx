@@ -102,7 +102,7 @@ const TaskCategory = ({
       </div>
 
       {isCreatingNewTaskCard ? (
-        <Textarea placeholder="Describe your task" onBlur={handleNewTaskCardBlur}/>
+        <Textarea autoFocus placeholder="Describe your task" onBlur={handleNewTaskCardBlur}/>
       ) : (
         <Button
           variant="outline"
@@ -113,18 +113,7 @@ const TaskCategory = ({
         </Button>
       )}
 
-      {/*       <TaskDialog
-        isEditing={false}
-        defaultCategory={id}
-        TriggerElement={
-          <Button
-            variant="outline"
-            className="flex flex-row justify-center gap-2"
-          >
-            Create new task
-          </Button>
-        }
-      /> */}
+
     </Card>
   )
 }
