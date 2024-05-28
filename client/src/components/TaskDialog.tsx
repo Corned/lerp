@@ -1,6 +1,7 @@
 import { Textarea } from "@/components/ui/textarea"
 import {
   Dialog,
+  DialogClose,
   DialogDescription,
   DialogFooter,
   DialogHeader,
@@ -151,8 +152,13 @@ const TaskDialog = ({
             />
 
             <DialogFooter>
-              <Button variant="outline">Cancel</Button>
+              <DialogClose asChild>
+                <Button variant="outline">Cancel</Button>
+              </DialogClose>
+              <DialogClose asChild>
               <Button type="submit">Save Changes</Button>
+
+              </DialogClose>
             </DialogFooter>
           </form>
         </Form>
