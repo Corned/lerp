@@ -12,7 +12,7 @@ type TaskCardPropTypes = {
 }
 
 const TagPill = ({ tag }: { tag: string }) => {
-  let color = "gree"
+  let color = "green"
   if (tag === "Frontend") {
     color = "blue"
   } else if (tag === "Backend") {
@@ -23,7 +23,7 @@ const TagPill = ({ tag }: { tag: string }) => {
 
   return (
     <div
-      className={`w-fit rounded-full  px-6 py-1 font-bold bg-${color}-400 text-${color}-500`}
+      className={`w-fit rounded-full px-6 grow py-1 font-bold bg-${color}-400 text-${color}-500`}
     ></div>
   )
 }
@@ -67,7 +67,7 @@ const TaskCard = ({
       <TaskDialog
         task={task}
         TriggerElement={
-          <button className={`absolute right-1 top-1 z-10 h-8 w-8 rounded-full p-2 transition-all hover:bg-gray-100 ${showEditButton ? "" : "hidden"}`}>
+          <button className={`absolute right-1 top-1 z-10 h-8 w-8 rounded-full p-2 transition-all shadow bg-white hover:bg-gray-100 ${showEditButton ? "" : "hidden"}`}>
             <PencilIcon className="h-full w-full" />
           </button>
         }
