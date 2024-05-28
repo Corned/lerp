@@ -10,7 +10,7 @@ type TaskCardPropTypes = {
 }
 
 const TagPill = ({ tag }: { tag: string }) => {
-  let color = "gray"
+  let color = "green"
   if (tag === "Frontend") {
     color = "blue"
   } else if (tag === "Backend") {
@@ -33,7 +33,7 @@ const TaskCard = ({
   onDrag,
 }: TaskCardPropTypes) => {
   const [isDragging, setDragging] = useState(false)
-  const [ showEditButton, setShowEditButton ] = useState(false)
+  const [showEditButton, setShowEditButton] = useState(false)
 
   const handleDragStart = (_event: DragEvent) => {
     setDragging(true)
@@ -61,18 +61,21 @@ const TaskCard = ({
       onMouseEnter={() => setShowEditButton(true)}
       onMouseLeave={() => setShowEditButton(false)}
     >
-    
-    { showEditButton &&
-      <button className="absolute top-1 right-1 rounded-full p-2 z-10 h-8 w-8 hover:bg-gray-100 transition-all">
-        <PencilIcon className="w-full h-full"/>
-      </button>
-    }
+      {showEditButton && (
+        <button className="absolute right-1 top-1 z-10 h-8 w-8 rounded-full p-2 transition-all hover:bg-gray-100">
+          <PencilIcon className="h-full w-full" />
+        </button>
+      )}
 
-      <div className="gap flex flex-row flex-wrap gap-2 text-sm ">
-        {task.tags.map((tag, index) => (
-          <TagPill key={index} tag={tag} />
-        ))}
-      </div>
+      {
+        task.tags.length > 0 && (
+          <div className="gap flex flex-row flex-wrap gap-2 text-sm ">
+            {task.tags.map((tag, index) => (
+              <TagPill key={index} tag={tag} />
+            ))}
+          </div>
+        )
+      }
 
       <p className="text-md">{task.body}</p>
       <Moment date={task.date} format="DD/MM/yyyy" />

@@ -1,17 +1,18 @@
-import React, { DragEvent, useRef } from "react"
+import React, { DragEvent, useRef, useState } from "react"
 
 import TaskCard from "@/components/TaskCard"
 import { Ellipsis, Plus } from "lucide-react"
 import { Card } from "./ui/card"
 import { Button } from "./ui/button"
 import TaskDialog from "./TaskDialog"
+import { Textarea } from "./ui/textarea"
+import { useCreateTaskMutation } from "@/services/api"
 
 type TaskCategoryPropTypes = {
   isTargetted: boolean
   title: string
   id: number
   tasks: Task[]
-  previewPosition: any
   onCategoryDragOver(
     event: DragEvent,
     taskContainerRef: React.RefObject<HTMLDivElement>,
@@ -44,7 +45,29 @@ const TaskCategory = ({
   onTaskCardDragEnd,
   onTaskCardDrag,
 }: TaskCategoryPropTypes) => {
+  const [isCreatingNewTaskCard, setIsCreatingNewTaskCard] = useState(false)
+  
+  const [createTask, _result] = useCreateTaskMutation()
   const taskContainerRef = useRef<HTMLDivElement>(null)
+
+  const handleNewTaskCardBlur = (event) => {
+    const value = event.target.value.trim()
+    setIsCreatingNewTaskCard(false)
+
+    if (!value) {
+      return
+    }
+
+    const payload = {
+      body: value,
+      categoryId: id,
+      workspaceId: 1,
+      position: 9999,
+      tags: [],
+    }
+       
+    createTask({ payload })
+  }
 
   const sortedTasks = tasks.sort((a, b) => {
     return a.position - b.position
@@ -78,7 +101,19 @@ const TaskCategory = ({
         ))}
       </div>
 
-      <TaskDialog
+      {isCreatingNewTaskCard ? (
+        <Textarea placeholder="Describe your task" onBlur={handleNewTaskCardBlur}/>
+      ) : (
+        <Button
+          variant="outline"
+          className="flex flex-row justify-center gap-2"
+          onClick={() => setIsCreatingNewTaskCard(true)}
+        >
+          Create new task
+        </Button>
+      )}
+
+      {/*       <TaskDialog
         isEditing={false}
         defaultCategory={id}
         TriggerElement={
@@ -89,7 +124,7 @@ const TaskCategory = ({
             Create new task
           </Button>
         }
-      />
+      /> */}
     </Card>
   )
 }
