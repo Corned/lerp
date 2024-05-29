@@ -1,23 +1,32 @@
 import { Github } from "lucide-react"
 import exampleImage from "@/assets/example.png"
 import { Button } from "@/components/ui/button"
-import NewWorkspaceDialog from "@/components/NewWorkspaceDialog"
 
 const Header = () => {
   return (
-    <header className="relative flex select-none flex-row justify-between gap-4 overflow-hidden rounded-xl p-20 text-white">
-      <div className="flex flex-col gap-4">
-        <p className="font-rubik-mono text-7xl">Lerp</p>
-        <p className="font-rubik-mono text-7xl">Task</p>
-        <p className="font-rubik-mono text-7xl">Manager</p>
-      </div>
+    <header className="relative flex select-none flex-row justify-between gap-4 overflow-hidden rounded-xl p-20 text-white bg-indigo-400 ">
 
-      <div className="absolute left-0 top-0 z-[-1] h-full w-full bg-gradient-to-r from-indigo-400 from-45% to-indigo-400/10 "></div>
+      <p className="text-7xl font-rubik font-bold w-3/4 flex flex-col gap-1">
+        <span>Achieve <span className="italic">more</span></span>
+        <span> with unparalleled </span>
+        <span><span className="font-serif uppercase">efficiency</span>.</span>
+      </p>
+
+{/* 
+      <div className="flex flex-col justify-center w-full items-left gap-4">
+        <p className="font-rubik-mono text-7xl drop-shadow-md">Lerp</p>
+        <p className="font-rubik-mono text-7xl drop-shadow-md">Task</p>
+        <p className="font-rubik-mono text-7xl drop-shadow-md">Manager</p>
+      </div>
+      <div className="absolute left-0 top-0 z-[-1] h-full w-full bg-gradient-to-r from-indigo-400 from-45% to-indigo-400/40 "></div>
 
       <img
         className="max-w-1/2 absolute right-0 top-0 z-[-2] min-h-full w-3/5 object-cover"
         src={exampleImage}
       />
+ */}
+
+
     </header>
   )
 }
@@ -34,7 +43,7 @@ const Features = () => {
 
 const Index = () => {
   return (
-    <main className="mx-auto mt-20 flex w-[1200px] flex-col gap-10">
+    <main className="mx-auto mt-10 flex w-[1200px] flex-col gap-10">
       <Header />
 
       <blockquote
@@ -56,10 +65,6 @@ const Index = () => {
         <Button variant="outline" className="px-8 py-6 text-2xl">
           Log in
         </Button>
-      </div>
-
-      <div>
-        <NewWorkspaceDialog />
       </div>
 
       <Features />

@@ -1,4 +1,3 @@
-import { Textarea } from "@/components/ui/textarea"
 import {
   Dialog,
   DialogClose,
@@ -10,24 +9,14 @@ import {
 } from "@/components/ui/dialog"
 import { DialogContent } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 import { useForm } from "react-hook-form"
-import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group"
 import {
   Form,
-  FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from "./ui/form"
-import { PenLineIcon, SquarePenIcon } from "lucide-react"
+import { SquarePenIcon } from "lucide-react"
 import { Input } from "./ui/input"
 import { useState } from "react"
 
@@ -35,7 +24,7 @@ type NewWorkspaceDialogProps = {
   TriggerElement?: React.ReactNode
 }
 
-const DefaultTriggerElement = <Button variant="outline">Open Dialog</Button>
+const DefaultTriggerElement = <Button variant="ghost">Open Dialog</Button>
 
 const NewWorkspaceDialog = ({
   TriggerElement = DefaultTriggerElement,
@@ -91,7 +80,7 @@ const NewWorkspaceDialog = ({
               <DialogClose asChild>
                 <Button variant="outline">Cancel</Button>
               </DialogClose>
-              <Button type="submit">Save Changes</Button>
+              <Button type="submit">Create</Button>
             </DialogFooter>
           </form>
         </Form>

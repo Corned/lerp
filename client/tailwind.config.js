@@ -77,6 +77,7 @@ module.exports = {
       fontFamily: {
         rubik: ["Rubik", "sans-serif"],
         "rubik-mono": ["Rubik Mono One", "monospace"],
+        pacifico: ["Pacifico", "monospace"]
       },
     },
   },
