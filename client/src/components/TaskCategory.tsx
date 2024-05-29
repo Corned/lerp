@@ -46,7 +46,7 @@ const TaskCategory = ({
   onTaskCardDrag,
 }: TaskCategoryPropTypes) => {
   const [isCreatingNewTaskCard, setIsCreatingNewTaskCard] = useState(false)
-  
+
   const [createTask, _result] = useCreateTaskMutation()
   const taskContainerRef = useRef<HTMLDivElement>(null)
 
@@ -65,7 +65,7 @@ const TaskCategory = ({
       position: 9999,
       tags: [],
     }
-       
+
     createTask({ payload })
   }
 
@@ -102,7 +102,11 @@ const TaskCategory = ({
       </div>
 
       {isCreatingNewTaskCard ? (
-        <Textarea autoFocus placeholder="Describe your task" onBlur={handleNewTaskCardBlur}/>
+        <Textarea
+          autoFocus
+          placeholder="Describe your task"
+          onBlur={handleNewTaskCardBlur}
+        />
       ) : (
         <Button
           variant="outline"
@@ -112,8 +116,6 @@ const TaskCategory = ({
           Create new task
         </Button>
       )}
-
-
     </Card>
   )
 }

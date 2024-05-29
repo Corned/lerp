@@ -45,14 +45,14 @@ const TaskDialog = ({
   TriggerElement = DefaultTriggerElement,
   task,
 }: TaskDialogProps) => {
-  const [ isOpen, setOpen ] = useState(false)
+  const [isOpen, setOpen] = useState(false)
 
   const form = useForm({
     defaultValues: {
       categoryId: task.categoryId.toString(),
       tags: task.tags,
       body: task.body,
-    }
+    },
   })
 
   const [updateTask] = useUpdateTaskMutation()
@@ -61,7 +61,7 @@ const TaskDialog = ({
     setOpen(false)
   }
 
-  const onSubmit = (values: Partial<Task>) => {   
+  const onSubmit = (values: Partial<Task>) => {
     const taskObject: Task = {
       ...task,
       ...values,
@@ -80,7 +80,7 @@ const TaskDialog = ({
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="flex flex-row items-center gap-2">
-            <PenLineIcon />  
+            <PenLineIcon />
             <span>Edit an Existing Task </span>
           </DialogTitle>
         </DialogHeader>

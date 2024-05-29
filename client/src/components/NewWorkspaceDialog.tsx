@@ -40,21 +40,19 @@ const DefaultTriggerElement = <Button variant="outline">Open Dialog</Button>
 const NewWorkspaceDialog = ({
   TriggerElement = DefaultTriggerElement,
 }: NewWorkspaceDialogProps) => {
+  const [isOpen, setOpen] = useState(false)
 
-  const [ isOpen, setOpen ] = useState(false)
- 
   const form = useForm({
     defaultValues: {
-      name: "My Workspace"
-    }
+      name: "My Workspace",
+    },
   })
 
   const closeDialog = () => {
     setOpen(false)
   }
 
-  const onSubmit = () => {   
-
+  const onSubmit = () => {
     // Call closeDialog after form has been successfully processed
     closeDialog()
   }
@@ -65,7 +63,7 @@ const NewWorkspaceDialog = ({
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="flex flex-row items-center gap-2">
-            <SquarePenIcon />  
+            <SquarePenIcon />
             <span>Create a New Workspace </span>
           </DialogTitle>
         </DialogHeader>
@@ -84,11 +82,7 @@ const NewWorkspaceDialog = ({
               render={({ field }) => (
                 <FormItem className="flex flex-col gap-2">
                   <FormLabel>Workspace Name</FormLabel>
-                  <Input
-                    className="resize-none"
-                    placeholder=""
-                    {...field}
-                  />
+                  <Input className="resize-none" placeholder="" {...field} />
                 </FormItem>
               )}
             />
