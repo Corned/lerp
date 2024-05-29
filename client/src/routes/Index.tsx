@@ -1,6 +1,7 @@
 import { Github } from "lucide-react"
 import exampleImage from "@/assets/example.png"
 import { Button } from "@/components/ui/button"
+import NewWorkspaceDialog from "@/components/NewWorkspaceDialog"
 
 const Header = () => {
   return (
@@ -55,6 +56,10 @@ const Index = () => {
         <Button variant="outline" className="px-8 py-6 text-2xl">
           Log in
         </Button>
+      </div>
+
+      <div>
+        <NewWorkspaceDialog />
       </div>
 
       <Features />

@@ -30,6 +30,7 @@ import {
 } from "./ui/form"
 import { z } from "zod"
 import { PenLineIcon } from "lucide-react"
+import { useState } from "react"
 
 type TaskDialogProps = {
   TriggerElement?: React.ReactNode
@@ -44,7 +45,8 @@ const TaskDialog = ({
   TriggerElement = DefaultTriggerElement,
   task,
 }: TaskDialogProps) => {
- 
+  const [ isOpen, setOpen ] = useState(false)
+
   const form = useForm({
     defaultValues: {
       categoryId: task.categoryId.toString(),
@@ -55,6 +57,10 @@ const TaskDialog = ({
 
   const [updateTask] = useUpdateTaskMutation()
 
+  const closeDialog = () => {
+    setOpen(false)
+  }
+
   const onSubmit = (values: Partial<Task>) => {   
     const taskObject: Task = {
       ...task,
@@ -63,10 +69,13 @@ const TaskDialog = ({
     }
 
     updateTask(taskObject)
+
+    // Make sure everything is valid before calling this
+    closeDialog()
   }
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setOpen}>
       <DialogTrigger asChild>{TriggerElement}</DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
@@ -155,10 +164,7 @@ const TaskDialog = ({
               <DialogClose asChild>
                 <Button variant="outline">Cancel</Button>
               </DialogClose>
-              <DialogClose asChild>
               <Button type="submit">Save Changes</Button>
-
-              </DialogClose>
             </DialogFooter>
           </form>
         </Form>
